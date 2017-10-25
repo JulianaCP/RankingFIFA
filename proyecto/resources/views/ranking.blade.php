@@ -27,24 +27,31 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Last Name</th>
+                    <th scope="col">Equipo</th>
+                    <th scope="col">Puntos</th>
                     <th scope="col">Username</th>
                 </tr>
             </thead>
             <tbody>
+                <?php
+                    $contador = 1;
+                ?>
             @foreach($listaEquipos as $equipo)
+
                 <tr>
-                    <td>1</td>
+                    <td><?php echo $contador ?></td>
                     <td>
                         <div class="table_imagen"><img src="{{$equipo->bandera}}" alt=""></div>
                         <div class="table_centrar_texto">{{$equipo->nombre}}</div>
                         
                     
                     </td>
-                    <td>Otto</td>
+                    <td>{{$equipo->puntos}}</td>
                     <td>@mdo</td>
                 </tr>  
+                <?php
+                    $contador = $contador + 1;
+                ?>
             @endforeach
             </tbody>
         </table>  

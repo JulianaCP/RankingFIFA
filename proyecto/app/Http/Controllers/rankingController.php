@@ -13,7 +13,7 @@ class rankingController extends Controller
      */
     public function index()
     {
-        $listaEquipos= \DB::select('select * from Equipo');
+        $listaEquipos= \DB::select('SELECT * FROM Equipo ORDER BY puntos DESC;');
         $envioDatosEquipo = ['listaEquipos' => $listaEquipos];
         return View('ranking', $envioDatosEquipo);
     }
