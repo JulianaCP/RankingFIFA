@@ -16,4 +16,4 @@ Route::get('/', function () {
 });
 
 
-Route::post('/loginAction',  'Controller@prueba');
+Route::post('/loginAction',  'rankingController@index');
