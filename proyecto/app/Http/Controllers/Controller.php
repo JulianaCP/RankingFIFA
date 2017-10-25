@@ -13,7 +13,7 @@ class Controller extends BaseController
 
 
     public function prueba(){
-        //$id = \DB::select('select * from prueba');
-       // echo $id[0]->valor;
+        $id = \DB::select('select * from Confederacion');
+        echo $id[0]->nombre;
     }
 }
