@@ -65,6 +65,14 @@
         </style>
     </head>
     <body>
+    <form method="post"  action="http://localhost:8000/loginAction" accept-charset="UTF-8">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <button type="submit" style="box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5), 0 4px 4px 0 rgba(0, 0, 0, 0.5)" class="btn btn-info">Sign in</button>
+    </form>
+
+
+
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
