@@ -1,2 +1,4 @@
 crear proyecto: composer create-project laravel/laravel nombre_del_proyecto --prefer-dist
 corregir conflictos: composer install
+
+https://stackoverflow.com/questions/38602321/cloning-laravel-project-from-github
