@@ -135,4 +135,4 @@ INSERT INTO Equipo(nombre,puntos,bandera,activado,idConfederacion)
 		('Líbano',1631,'img/imagenes_ranking/100_Libano.png',1,5);
 
 
-select * from Equipo
+SELECT * FROM Equipo ORDER BY puntos DESC;
