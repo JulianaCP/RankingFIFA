@@ -29,7 +29,7 @@ INSERT INTO Confederacion(nombre)
 		('UEFA');
 
 
-select * from Confederacion
+select * from Equipo
 
 
 INSERT INTO Equipo(nombre,puntos,bandera,activado,idConfederacion)
@@ -53,11 +53,7 @@ INSERT INTO Equipo(nombre,puntos,bandera,activado,idConfederacion)
 		('Uruguay',1034,'img/imagenes_ranking/17_Uruguay.png',1,3),
 		('Croacia',1013,'img/imagenes_ranking/18_Croacia.png',1,6),
 		('Dinamarca',1001,'img/imagenes_ranking/19_Dinamarca.png',1,6),
-		('Países Bajos',931,'img/imagenes_ranking/20_Paises_Bajos.png',1,6);
-
-
-INSERT INTO Equipo(nombre,puntos,bandera,activado,idConfederacion)
-	VALUES
+		('Países Bajos',931,'img/imagenes_ranking/20_Paises_Bajos.png',1,6),
 		('Islandia',920,'img/imagenes_ranking/21_Islandia.png',1,6),
 		('Costa Rica',914,'img/imagenes_ranking/22_Costa_Rica.png',1,2),
 		('Irlanda del Norte',889,'img/imagenes_ranking/23_Irlanda_del_Norte.png',1,6),
@@ -77,10 +73,7 @@ INSERT INTO Equipo(nombre,puntos,bandera,activado,idConfederacion)
 		('Bulgaria',750,'img/imagenes_ranking/37_Bulgaria.png',1,6),
 		('Serbia',748,'img/imagenes_ranking/38_Serbia.png',1,6),
 		('Austria',745,'img/imagenes_ranking/39_Austria.png',1,6),
-		('Bosnia y Herzegovina',744,'img/imagenes_ranking/40_Bosnia_Herzegovina.png',1,6);
-
-INSERT INTO Equipo(nombre,puntos,bandera,activado,idConfederacion)
-	VALUES
+		('Bosnia y Herzegovina',744,'img/imagenes_ranking/40_Bosnia_Herzegovina.png',1,6),
 		('Nigeria',721,'41_Nigeria.png',1,1),
 		('Camerún',718,'42_Camerún.png',1,1),
 		('Australia',714,'43_Australia.png',1,5),
