@@ -37,8 +37,9 @@
                 <tr>
                     <td>1</td>
                     <td>
-                        <img src="{{$equipo->bandera}}" alt="">
-                        {{$equipo->nombre}}
+                        <div class="table_imagen"><img src="{{$equipo->bandera}}" alt=""></div>
+                        <div>{{$equipo->nombre}}</div>
+                        
                     
                     </td>
                     <td>Otto</td>
