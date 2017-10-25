@@ -38,7 +38,7 @@
                     <td>1</td>
                     <td>
                         <div class="table_imagen"><img src="{{$equipo->bandera}}" alt=""></div>
-                        <div>{{$equipo->nombre}}</div>
+                        <div class="table_centrar_texto">{{$equipo->nombre}}</div>
                         
                     
                     </td>
