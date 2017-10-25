@@ -1,0 +1,2 @@
+crear proyecto: composer create-project laravel/laravel nombre_del_proyecto --prefer-dist
+corregir conflictos: composer install
