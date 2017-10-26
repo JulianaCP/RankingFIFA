@@ -15,5 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/goToMain', function () {
+    return view('createView');
+});
 
 Route::post('/loginAction',  'rankingController@index');
+Route::post('/create',  'createTeamController@create');
+Route::post('/update',  'createTeamController@update');
+Route::post('/goToMain2',  'createTeamController@show');
