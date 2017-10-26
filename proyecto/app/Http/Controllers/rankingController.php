@@ -19,11 +19,9 @@ class rankingController extends Controller
     }
     public function enableTeam()
     {
-        try{                                    
-            \DB::select("UPDATE EQUIPO SET activado = 0 WHERE nombreEquipo = 'Alemania'");
-         }catch(\Illuminate\Database\QueryException $ex){
-             //return redirect('/mensajeError'); 
-         }
+        $nombreEquipo = $_POST['id'];
+        \DB::statement("EXEC changeEnableAttributeTeam '" . $nombreEquipo . "'");
+
     }
 
     /**
