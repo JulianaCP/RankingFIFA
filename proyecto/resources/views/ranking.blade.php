@@ -35,6 +35,8 @@
                     <th scope="col">Puntos</th>
                     <th scope="col">Confederación</th>
                     <th scope="col"></th>
+                    <th scope="col"></th>
+        
                 </tr>
             </thead>
             <tbody>
@@ -54,19 +56,21 @@
                     <td>{{$equipo->puntos}}</td>
                     <td>{{$equipo->nombreConfederacion}}</td>
                     <td>
-                    @if ($equipo->activado == 1)
-                        <form action="/ranking/check">
-                            <input type="checkbox" onClick="change(this.id)" checked="checked" class="filled-in" id="{{$equipo->nombreEquipo}}"/>
-                            <label for="{{$equipo->nombreEquipo}}">Habilitado</label>
-                        </form>
-                    @endif
-                    @if ($equipo->activado == 0)
-                        <form action="/ranking/check">
-                            <input type="checkbox" onClick="change(this.id)" class="filled-in" id="{{$equipo->nombreEquipo}}"/>
-                            <label for="{{$equipo->nombreEquipo}}">Habilitado</label>
-                        </form>
-                    @endif
-
+                        @if ($equipo->activado == 1)
+                            <form action="/ranking/check">
+                                <input type="checkbox" onClick="change(this.id)" checked="checked" class="filled-in" id="{{$equipo->nombreEquipo}}"/>
+                                <label for="{{$equipo->nombreEquipo}}">Habilitado</label>
+                            </form>
+                        @endif
+                        @if ($equipo->activado == 0)
+                            <form action="/ranking/check">
+                                <input type="checkbox" onClick="change(this.id)" class="filled-in" id="{{$equipo->nombreEquipo}}"/>
+                                <label for="{{$equipo->nombreEquipo}}">Habilitado</label>
+                            </form>
+                        @endif
+                    </td>
+                    <td>
+                        <button>Editar</button>
 
                     </td>
                 </tr>  

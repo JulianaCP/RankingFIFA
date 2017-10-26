@@ -145,7 +145,7 @@ CREATE PROCEDURE createTeam(
 )
 as
 BEGIN
-	INSERT INTO	Equipo(nombre,puntos,bandera,activado,idConfederacion)values(@nombreP,@puntos,@banderaP,@activado,@idConfederacion);
+	INSERT INTO	Equipo(nombreEquipo,puntos,bandera,activado,idConfederacion)values(@nombreP,@puntos,@banderaP,@activado,@idConfederacion);
 END;
 
 GO
@@ -166,5 +166,34 @@ BEGIN
 		activado= @activado,
 		idConfederacion= @idConfederacion
 
-	WHERE nombre = @nombreP
+	WHERE nombreEquipo = @nombreP
 END;
+
+go
+
+CREATE PROCEDURE changeEnableAttributeTeam(									
+	@nombreEquipoP VARCHAR(100)
+)
+as
+DECLARE
+	@actualState BIT
+BEGIN
+	set @actualState =  (select activado from Equipo where nombreEquipo = @nombreEquipoP);
+
+
+	if @actualState = 1
+		BEGIN
+			UPDATE EQUIPO SET activado = 0 WHERE nombreEquipo = @nombreEquipoP; 
+		END
+	ELSE
+		BEGIN
+			UPDATE EQUIPO SET activado = 1 WHERE nombreEquipo = @nombreEquipoP;
+		END
+END;
+
+
+exec changeEnableAttributeTeam 'Alemania'
+
+
+select * from Equipo
+
