@@ -6,12 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sorteo</title>
     <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"/>
-    <link type="text/css" rel="stylesheet" href="materialize/js/materialize.min.js"/>
+    <link type="text/css" rel="text/javascript" href="materialize/js/materialize.min.js"/>
     <link rel="stylesheet" href="css/ranking.css">    
     <link rel="stylesheet" href="css/style.css">   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body class="body">
-    
+
     <nav class="nav_color">
         <div class="nav-wrapper">
         <a href="/ranking" class="brand-logo nav_logo">FIFA</a>
@@ -53,7 +55,7 @@
                     <td>{{$equipo->nombreConfederacion}}</td>
                     <td>
                     <form action="/ranking/check">
-                        <input type="checkbox" class="filled-in" id="{{$equipo->nombreEquipo}}"/>
+                        <input type="checkbox" onClick="change(this.id)" class="filled-in" id="{{$equipo->nombreEquipo}}"/>
                         <label for="{{$equipo->nombreEquipo}}">Habilitado</label>
                     </form>
 
@@ -67,6 +69,25 @@
         </table>  
     
     </div>
+
+    <script>
+        function change(idEquipo){
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: "POST",
+                url: 'ranking/enableTeam',
+                data: {id : idEquipo},
+                success: function() {
+                    console.log("Success");
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                    alert("Error: " + errorThrown); 
+                } 
+            })
+        }
+    </script>
 
 </body>
 </html>

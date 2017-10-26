@@ -17,6 +17,14 @@ class rankingController extends Controller
         $envioDatosEquipo = ['listaEquipos' => $listaEquipos];
         return View('ranking', $envioDatosEquipo);
     }
+    public function enableTeam()
+    {
+        try{                                    
+            \DB::select("UPDATE EQUIPO SET activado = 0 WHERE nombreEquipo = 'Alemania'");
+         }catch(\Illuminate\Database\QueryException $ex){
+             //return redirect('/mensajeError'); 
+         }
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -56,10 +64,7 @@ class rankingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function check()
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.
