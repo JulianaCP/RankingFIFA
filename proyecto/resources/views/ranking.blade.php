@@ -190,7 +190,8 @@
                 } 
             })
         }
-                function openModalCreate(){            
+        
+        function openModalCreate(){            
             var modal = document.getElementById('modalBoxCreateTeam');
             modal.style.display = "block";
         }
