@@ -17,9 +17,14 @@ Route::get('/', function () {
 Route::get('/goToMain', function () {
     return view('createView');
 });
+
+Route::get('/home', function () {
+    return view('ranking');
+});
+
 Route::post('/ranking',  'rankingController@index');
 Route::get('/ranking',  'rankingController@index');
 Route::post('/ranking/enableTeam','rankingController@enableTeam');
 Route::post('/create',  'createTeamController@create');
 Route::post('/update',  'createTeamController@update');
-Route::post('/goToMain2',  'createTeamController@show');
+Route::post('/updateElements',  'createTeamController@showTeamInformation');

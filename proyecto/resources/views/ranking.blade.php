@@ -12,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
+    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/plantilla.css" rel="stylesheet">
@@ -21,7 +21,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body class="body">
-    <div id="modalBoxCreateTeam" class="modal">            
+    
+    <div id="modalBoxCreateTeam">            
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close" onclick="closeModalCreate()">&times;</span>
@@ -63,7 +64,7 @@
     </div>        
 
         
-    <div id="modalBoxUpdate" class="modal">            
+    <div id="modalBoxUpdate">            
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close" onclick="closeModalUpdate()">&times;</span> <h5>Actualizar Equipo</h5>                  
@@ -116,6 +117,8 @@
         </div>
     </nav>
     <br>    
+    
+
     <h3 class="centrar_texto"><strong>Ranking</strong></h3>
     <div class="table">
         <table class="responsive-table highlight bordered">
@@ -161,7 +164,7 @@
                         @endif
                     </td>
                     <td>
-                        <button>Editar</button>
+                        <button onclick="openModalUpdate({{$equipo->nombreEquipo}})">Editar</button>
 
                     </td>
                 </tr>  
@@ -209,12 +212,32 @@
             $("#nameIns").val("");
             $("#pointIns").val(0);
             $("#categorieIns").val("");
-            $("#flagIns").val("");
-            
-
+            $("#flagIns").val("");            
         }
-        function openModalUpdate(){            
-            var modal = document.getElementById('modalBoxUpdate');
+
+        function openModalUpdate(nombreE){            
+            var item= $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: "POST",
+                url: 'updateElements',
+                data: {nombreE : nombreE},
+                success: function() {
+                    console.log("Success");
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                    alert("Error: " + errorThrown); 
+                } 
+            });
+            alert(typeof(item));
+            alert(item.nombreEquipo);            
+            document.getElementById('categorieIns').selectedIndex=; item.idConfederacion;
+            document.getElementById('nameIns').value=item.nombreEquipo;
+            document.getElementById('pointIns').value=item.puntos;
+            document.getElementById('flagIns').value=item.bandera;
+            
+            var modal = document.getElementById('modalBoxUpdate');            
             modal.style.display = "block";
         }
         function closeModalUpdate(){            

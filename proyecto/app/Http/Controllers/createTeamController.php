@@ -15,15 +15,17 @@ class createTeamController extends Controller
         $idConfederation= $_POST['categorieInsU'];
         try{                                    
 
-			\DB::select("UPDATE Equipo SET puntos= '".$point."',bandera= '".$flag."',activado= '".$active."', idConfederacion= '".$idConfederation."' WHERE nombreEquipo = ".$name.")");
-            return redirect('/goToMain');            
+			\DB::select("UPDATE Equipo SET puntos= '".$point."',bandera= '".$flag."',activado= '".$active."', idConfederacion= '".$idConfederation."' WHERE nombreEquipo = '".$name."')");
+            return redirect('/home');            
         }catch(\Illuminate\Database\QueryException $ex){
             echo $ex;
         }
     }
 
     public function showTeamInformation(){
-    	return View('createView');    	
+    	$nombreEquipo = $_POST['nombreE'];
+ 		$equipo= \DB::select("SELECT * FROM Equipo WHERE nombreEquipo = '".$nombreE."')");        
+        return $equipo;
     }
 
     public function create()
@@ -35,7 +37,7 @@ class createTeamController extends Controller
         $idConfederation= $_POST['categorieIns'];       
         try{    
             \DB::insert("INSERT INTO Equipo(nombreEquipo,puntos,bandera,activado,idConfederacion) VALUES ('".$name."','".$point."','".$flag."','".$active."','".$idConfederation."')");                                
-            return redirect('/goToMain');
+            return redirect('/home');
         }catch(\Illuminate\Database\QueryException $ex){
             echo $ex;
         }
