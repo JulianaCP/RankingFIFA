@@ -8,28 +8,30 @@
     <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"/>
     <link type="text/css" rel="stylesheet" href="materialize/js/materialize.min.js"/>
     <link rel="stylesheet" href="css/ranking.css">    
+    <link rel="stylesheet" href="css/style.css">   
 </head>
-<body>
-    <nav>
+<body class="body">
+    
+    <nav class="nav_color">
         <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Logo</a>
+        <a href="#" class="brand-logo nav_logo">FIFA</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html">Sass</a></li>
+            <li><a href="/loginAction">Ranking</a></li>
             <li><a href="badges.html">Components</a></li>
             <li><a href="collapsible.html">JavaScript</a></li>
         </ul>
         </div>
     </nav>
-            
-<h1>RANKING PAGE</h1>
+    <br>    
+    <h3 class="centrar_texto"><strong>Ranking</strong></h3>
     <div class="table">
         <table class="responsive-table highlight bordered">
-            <thead>
+            <thead class="highlight">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Equipo</th>
                     <th scope="col">Puntos</th>
-                    <th scope="col">Username</th>
+                    <th scope="col">Confederación</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,7 +44,7 @@
                     <td><?php echo $contador ?></td>
                     <td>
                         <div class="table_imagen"><img src="{{$equipo->bandera}}" alt=""></div>
-                        <div class="table_centrar_texto">{{$equipo->nombre}}</div>
+                        <div class="table_centrar_texto">{{$equipo->nombrEquipo}}</div>
                         
                     
                     </td>
