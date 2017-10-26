@@ -11,8 +11,99 @@
     <link rel="stylesheet" href="css/style.css">   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/plantilla.css" rel="stylesheet">
+    <link href="css/table.css" rel="stylesheet">                
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body class="body">
+    <div id="modalBoxCreateTeam" class="modal">            
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModalCreate()">&times;</span>
+                <h3>Crear Equipo</h3>
+            </div>
+            <form method="post"  action="http://localhost:8000/create" accept-charset="UTF-8">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <div class="modal-body">
+                    <div class="form">
+                        <ul>
+                            <legend><span class="number">1</span>Información</legend>                                
+                            <li>
+                                <label for="name">Nombre:</label>
+                                <input type="text" name="nameIns" placeholder="Digite el nombre" id="nameIns"/>
+                            </li>                       
+
+                            <li>
+                                <label for="price">Puntos:</label>
+                                <input type="number" name="pointIns" placeholder="Digite los puntos" id="pointIns"/>
+                            </li>                                                     
+                            <li>
+                                <label for="categorieIns">Confederacion:</label>
+                                <select id="categorieIns" name="categorieIns">
+                                    <option value="1" selected>CAF</option>
+                                    <option value="2">CONCACAF</option>
+                                    <option value="3">CONMEBOL</option>
+                                    <option value="4">OFC</option>
+                                    <option value="5">AFC</option>
+                                    <option value="6">UEFA</option>         
+                                </select>
+                            </li>
+                            <input type="file" id="flagIns" name="flagIns">
+                            <button type="submit" class="button" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 50%;">Aceptar</button>                                
+                        </ul>
+                    </div>                                                            
+                </div>
+            </form>            
+        </div>                    
+    </div>        
+
+        
+    <div id="modalBoxUpdate" class="modal">            
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModalUpdate()">&times;</span> <h3>Actualizar Equipo</h3>                  
+            </div>
+            <form method="post"  action="http://localhost:8000/update" accept-charset="UTF-8">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <div class="modal-body">
+                    <div class="form">
+                        <ul>
+                            <legend><span class="number">1</span>Información</legend>                                
+                            <li>
+                                <label for="name">Nombre:</label>
+                                <input type="text" name="nameInsU" placeholder="Digite el nombre" id="nameInsU"/>
+                            </li>                       
+
+                            <li>
+                                <label for="price">Puntos:</label>
+                                <input type="number" name="pointInsU" placeholder="Digite los puntos" id="pointInsU"/>
+                            </li>                                                     
+                            <li>
+                                <label for="categorieInsU">Confederacion:</label>
+                                <select id="categorieInsU" name="categorieInsU">
+                                    <option value="1" selected>CAF</option>
+                                    <option value="2">CONCACAF</option>
+                                    <option value="3">CONMEBOL</option>
+                                    <option value="4">OFC</option>
+                                    <option value="5">AFC</option>
+                                    <option value="6">UEFA</option>         
+                                </select>
+                            </li>
+                            <input type="file" id="flagInsU" name="flagInsU">
+                            <button class="button" type="submit" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 50%;">Aceptar</button>                                
+                        </ul>
+                    </div>                                                            
+                </div>
+            </form>            
+        </div>                    
+    </div>
+    
+
 
     <nav class="nav_color">
         <div class="nav-wrapper">
@@ -82,7 +173,14 @@
         </table>  
     
     </div>
-
+    
+    <div id="container-floating">
+        <div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Create"
+         onclick="openModalCreate()">
+            <p class="plus">+</p>
+        </div>
+    </div>
+    
     <script>
         function change(idEquipo){
             $.ajax({
@@ -100,7 +198,35 @@
                 } 
             })
         }
-    </script>
+        function openModalCreate(){            
+            var modal = document.getElementById('modalBoxCreateTeam');
+            modal.style.display = "block";
+        }
+        function closeModalCreate(){            
+            var modal = document.getElementById('modalBoxCreateTeam');
+            modal.style.display = "none";            
 
+            $("#nameIns").val("");
+            $("#pointIns").val(0);
+            $("#categorieIns").val("");
+            $("#flagIns").val("");
+            
+
+        }
+        function openModalUpdate(){            
+            var modal = document.getElementById('modalBoxUpdate');
+            modal.style.display = "block";
+        }
+        function closeModalUpdate(){            
+            var modal = document.getElementById('modalBoxUpdate');
+            modal.style.display = "none";            
+
+            $("#nameIns").val("");
+            $("#pointIns").val(0);
+            $("#categorieIns").val("");
+            $("#flagIns").val("");            
+        }        
+    </script>     
+   
 </body>
 </html>

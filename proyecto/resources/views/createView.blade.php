@@ -63,7 +63,7 @@ select {
   border-radius: 2px;
 }
 
-button {
+.button {
   padding: 19px 39px 18px 39px;
   color: #FFF;
   background-color: #4bc970;
@@ -301,7 +301,7 @@ label.light {
                                     </select>
                                 </li>
                                 <input type="file" id="flagIns" name="flagIns">
-                                <button type="submit" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 50%;">Aceptar</button>                                
+                                <button type="submit" class="button" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 50%;">Aceptar</button>                                
                             </ul>
                         </div>                                                            
                     </div>
@@ -342,7 +342,7 @@ label.light {
                                     </select>
                                 </li>
                                 <input type="file" id="flagInsU" name="flagInsU">
-                                <button type="submit" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 50%;">Aceptar</button>                                
+                                <button class="button" type="submit" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 50%;">Aceptar</button>                                
                             </ul>
                         </div>                                                            
                     </div>
@@ -360,11 +360,7 @@ label.light {
                 </div>
 
 
-    <script>                
-        $('input[type=file]').change(function () {
-            console.log("222222222222");
-            console.log(this.getFilePath());
-        });
+    <script>                        
         function openModalCreate(){            
             var modal = document.getElementById('modalBoxCreateTeam');
             modal.style.display = "block";

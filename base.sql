@@ -12,7 +12,7 @@ CREATE TABLE Confederacion(
 
 
 CREATE TABLE Equipo(
-	nombre VARCHAR(100) PRIMARY KEY,
+	nombreEquipo VARCHAR(100) PRIMARY KEY,
 	puntos int NOT NULL,
 	bandera VARCHAR(100) NOT NULL,
 	activado BIT NOT NULL,
