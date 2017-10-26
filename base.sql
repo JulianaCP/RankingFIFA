@@ -134,5 +134,37 @@ INSERT INTO Equipo(nombre,puntos,bandera,activado,idConfederacion)
 		('Sierra Leona',1631,'img/imagenes_ranking/99_Sierra_Leona.png',1,1),
 		('Líbano',1631,'img/imagenes_ranking/100_Libano.png',1,5);
 
+go
 
-SELECT * FROM Equipo ORDER BY puntos DESC;
+CREATE PROCEDURE createTeam(									
+	@nombreP VARCHAR(100),
+	@puntos int,									
+	@banderaP VARCHAR(100),
+	@activado BIT,
+	@idConfederacion INT
+)
+as
+BEGIN
+	INSERT INTO	Equipo(nombre,puntos,bandera,activado,idConfederacion)values(@nombreP,@puntos,@banderaP,@activado,@idConfederacion);
+END;
+
+GO
+
+CREATE PROCEDURE updateTeam(									
+	@nombreP VARCHAR(100),
+	@puntos int,									
+	@banderaP VARCHAR(100),
+	@activado BIT,
+	@idConfederacion INT
+)
+as
+BEGIN
+	UPDATE Equipo
+	SET 
+		puntos= @puntos,
+		bandera= @banderaP,
+		activado= @activado,
+		idConfederacion= @idConfederacion
+
+	WHERE nombre = @nombreP
+END;
