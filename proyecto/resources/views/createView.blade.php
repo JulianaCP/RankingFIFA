@@ -246,8 +246,7 @@
 
     button:active {
         border: 1px solid #20911e;
-        background-color: darkgreen;
-         
+        background-color: darkgreen;         
     }
 
     </style>
