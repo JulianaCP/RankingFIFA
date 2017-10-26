@@ -70,7 +70,7 @@
                         @endif
                     </td>
                     <td>
-                        <button onclick="openModalUpdate({{$equipo->nombreEquipo}})">Editar</button>
+                        <button onclick="">Editar</button>
 
                     </td>
                 </tr>  
@@ -83,87 +83,87 @@
     
     </div>
 
-    <div id="modalBoxCreateTeam" class="modal">            
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close" onclick="closeModalCreate()">&times;</span>
-                    <h3>Crear Equipo</h3>
+
+        <div class="modal-content" id="modalBoxCreateTeam" style="margin-left: 25%;">
+            <div class="modal-header">
+                <span class="close" onclick="closeModalCreate()">&times;</span>
+                <h3>Crear Equipo</h3>
+            </div>
+            <form method="post"  action="http://localhost:8000/create" accept-charset="UTF-8">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <div class="modal-body">
+                    <div class="form">
+                        <ul>
+                            <legend><span class="number">1</span>Información</legend>                                
+                            <li>
+                                <label for="name">Nombre:</label>
+                                <input type="text" name="nameIns" placeholder="Digite el nombre" id="nameIns"/>
+                            </li>                       
+
+                            <li>
+                                <label for="price">Puntos:</label>
+                                <input type="number" name="pointIns" placeholder="Digite los puntos" id="pointIns"/>
+                            </li>                                                     
+                            <li>
+                                <label for="categorieIns">Confederacion:</label>
+                                <select id="categorieIns" name="categorieIns">
+                                    <option value="1" selected>CAF</option>
+                                    <option value="2">CONCACAF</option>
+                                    <option value="3">CONMEBOL</option>
+                                    <option value="4">OFC</option>
+                                    <option value="5">AFC</option>
+                                    <option value="6">UEFA</option>         
+                                </select>
+                            </li>
+                            <input type="file" id="flagIns" name="flagIns">
+                            <button type="submit" class="button" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 10%;">Aceptar</button>                                
+                        </ul>
+                    </div>                                                            
                 </div>
-                <form method="post"  action="http://localhost:8000/create" accept-charset="UTF-8">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <div class="modal-body">
-                        <div class="form">
-                            <ul>
-                                <legend><span class="number">1</span>Información</legend>                                
-                                <li>
-                                    <label for="name">Nombre:</label>
-                                    <input type="text" name="nameIns" placeholder="Digite el nombre" id="nameIns"/>
-                                </li>                       
+            </form>            
+        </div>                    
+    
 
-                                <li>
-                                    <label for="price">Puntos:</label>
-                                    <input type="number" name="pointIns" placeholder="Digite los puntos" id="pointIns"/>
-                                </li>                                                     
-                                <li>
-                                    <label for="categorieIns">Confederacion:</label>
-                                    <select id="categorieIns" name="categorieIns">
-                                        <option value="1" selected>CAF</option>
-                                        <option value="2">CONCACAF</option>
-                                        <option value="3">CONMEBOL</option>
-                                        <option value="4">OFC</option>
-                                        <option value="5">AFC</option>
-                                        <option value="6">UEFA</option>         
-                                    </select>
-                                </li>
-                                <input type="file" id="flagIns" name="flagIns">
-                                <button type="submit" class="button" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 10%;">Aceptar</button>                                
-                            </ul>
-                        </div>                                                            
-                    </div>
-                </form>            
-            </div>                    
-        </div>        
+    
+    
+        <div class="modal-content" id="modalBoxUpdate" style="margin-left: 25%;">
+            <div class="modal-header">
+                <span class="close" onclick="closeModalUpdate()">&times;</span> <h3>Actualizar Equipo</h3>                  
+            </div>
+            <form method="post"  action="http://localhost:8000/update" accept-charset="UTF-8">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <div class="modal-body">
+                    <div class="form">
+                        <ul>
+                            <legend><span class="number">1</span>Información</legend>                                
+                            <li>
+                                <label for="name">Nombre:</label>
+                                <input type="text" name="nameInsU" placeholder="Digite el nombre" id="nameInsU"/>
+                            </li>                       
 
+                            <li>
+                                <label for="price">Puntos:</label>
+                                <input type="number" name="pointInsU" placeholder="Digite los puntos" id="pointInsU"/>
+                            </li>                                                     
+                            <li>
+                                <label for="categorieInsU">Confederacion:</label>
+                                <select id="categorieInsU" name="categorieInsU">
+                                    <option value="1" selected>CAF</option>
+                                    <option value="2">CONCACAF</option>
+                                    <option value="3">CONMEBOL</option>
+                                    <option value="4">OFC</option>
+                                    <option value="5">AFC</option>
+                                    <option value="6">UEFA</option>         
+                                </select>
+                            </li>
+                            <input type="file" id="flagInsU" name="flagInsU">
+                            <button class="button" type="submit" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 10%;">Aceptar</button>                                
+                        </ul>
+                    </div>                                                            
+                </div>
+            </form>            
+        </div>                    
         
-        <div id="modalBoxUpdate" class="modal">            
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close" onclick="closeModalUpdate()">&times;</span> <h3>Actualizar Equipo</h3>                  
-                </div>
-                <form method="post"  action="http://localhost:8000/update" accept-charset="UTF-8">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <div class="modal-body">
-                        <div class="form">
-                            <ul>
-                                <legend><span class="number">1</span>Información</legend>                                
-                                <li>
-                                    <label for="name">Nombre:</label>
-                                    <input type="text" name="nameInsU" placeholder="Digite el nombre" id="nameInsU"/>
-                                </li>                       
-
-                                <li>
-                                    <label for="price">Puntos:</label>
-                                    <input type="number" name="pointInsU" placeholder="Digite los puntos" id="pointInsU"/>
-                                </li>                                                     
-                                <li>
-                                    <label for="categorieInsU">Confederacion:</label>
-                                    <select id="categorieInsU" name="categorieInsU">
-                                        <option value="1" selected>CAF</option>
-                                        <option value="2">CONCACAF</option>
-                                        <option value="3">CONMEBOL</option>
-                                        <option value="4">OFC</option>
-                                        <option value="5">AFC</option>
-                                        <option value="6">UEFA</option>         
-                                    </select>
-                                </li>
-                                <input type="file" id="flagInsU" name="flagInsU">
-                                <button class="button" type="submit" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 10%;">Aceptar</button>                                
-                            </ul>
-                        </div>                                                            
-                    </div>
-                </form>            
-            </div>                    
-        </div>                        
         <div id="container-floating">
             <div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Create"
              onclick="openModalCreate()">
@@ -207,7 +207,7 @@
         }
 
         function openModalUpdate(nombreE){            
-            var item= $.ajax({
+            /*var item= $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
@@ -226,7 +226,7 @@
             document.getElementById('categorieIns').selectedIndex= item.idConfederacion;
             document.getElementById('nameIns').value=item.nombreEquipo;
             document.getElementById('pointIns').value=item.puntos;
-            document.getElementById('flagIns').value=item.bandera;
+            document.getElementById('flagIns').value=item.bandera;*/
             
             var modal = document.getElementById('modalBoxUpdate');            
             modal.style.display = "block";

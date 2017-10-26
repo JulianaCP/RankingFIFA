@@ -206,8 +206,9 @@ label.light {
     }
 
     .modal-content {
+        display: none;        
         border: 1px solid red;
-        position: relative;
+        position: fixed;        
         background-color: #fefefe;
         margin: auto;
         padding: 0;
@@ -262,8 +263,8 @@ label.light {
 
    
     </style>        
-        <div id="modalBoxCreateTeam" class="modal">            
-            <div class="modal-content">
+        <div>            
+            <div class="modal-content" id="modalBoxCreateTeam" style="margin-left: 25%;">
                 <div class="modal-header">
                     <span class="close" onclick="closeModalCreate()">&times;</span>
                     <h3>Crear Equipo</h3>

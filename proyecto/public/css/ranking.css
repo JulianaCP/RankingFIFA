@@ -113,7 +113,7 @@ label.light {
         background: black;
         position: fixed;
         right: 30px;
-        top: 150px;
+        top: 70px;
         cursor: pointer;
         box-shadow: 0px 2px 5px #666;
       }
@@ -185,13 +185,18 @@ label.light {
         left: 0;
         top: 0;
         width: 100%; 
-        height: auto;        
+        height: 100%;
+        overflow: auto; 
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4); 
+
         border: 1px solid black
     }
 
     .modal-content {
+        display: none;        
         border: 1px solid red;
-        position: relative;
+        position: fixed;        
         background-color: #fefefe;
         margin: auto;
         padding: 0;
@@ -201,7 +206,7 @@ label.light {
         -webkit-animation-name: animatetop;
         -webkit-animation-duration: 0.4s;
         animation-name: animatetop;
-        animation-duration: 0.4s
+        animation-duration: 0.4s;
     }
 
     @-webkit-keyframes animatetop {
