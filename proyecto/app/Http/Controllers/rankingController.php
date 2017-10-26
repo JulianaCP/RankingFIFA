@@ -17,6 +17,12 @@ class rankingController extends Controller
         $envioDatosEquipo = ['listaEquipos' => $listaEquipos];
         return View('ranking', $envioDatosEquipo);
     }
+    public function enableTeam()
+    {
+        $nombreEquipo = $_POST['id'];
+        \DB::statement("EXEC changeEnableAttributeTeam '" . $nombreEquipo . "'");
+
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -56,10 +62,7 @@ class rankingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.

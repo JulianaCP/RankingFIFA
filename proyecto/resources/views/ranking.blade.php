@@ -6,17 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sorteo</title>
     <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"/>
-    <link type="text/css" rel="stylesheet" href="materialize/js/materialize.min.js"/>
+    <link type="text/css" rel="text/javascript" href="materialize/js/materialize.min.js"/>
     <link rel="stylesheet" href="css/ranking.css">    
     <link rel="stylesheet" href="css/style.css">   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body class="body">
-    
+
     <nav class="nav_color">
         <div class="nav-wrapper">
-        <a href="#" class="brand-logo nav_logo">FIFA</a>
+        <a href="/ranking" class="brand-logo nav_logo">FIFA</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/loginAction">Ranking</a></li>
+            <li><a href="/ranking">Ranking</a></li>
             <li><a href="badges.html">Components</a></li>
             <li><a href="collapsible.html">JavaScript</a></li>
         </ul>
@@ -33,6 +35,8 @@
                     <th scope="col">Puntos</th>
                     <th scope="col">Confederación</th>
                     <th scope="col"></th>
+                    <th scope="col"></th>
+        
                 </tr>
             </thead>
             <tbody>
@@ -52,8 +56,22 @@
                     <td>{{$equipo->puntos}}</td>
                     <td>{{$equipo->nombreConfederacion}}</td>
                     <td>
-                        <input type="checkbox" class="filled-in" id="{{$equipo->nombreEquipo}}"/>
-                        <label for="{{$equipo->nombreEquipo}}">Habilitado</label>
+                        @if ($equipo->activado == 1)
+                            <form action="/ranking/check">
+                                <input type="checkbox" onClick="change(this.id)" checked="checked" class="filled-in" id="{{$equipo->nombreEquipo}}"/>
+                                <label for="{{$equipo->nombreEquipo}}">Habilitado</label>
+                            </form>
+                        @endif
+                        @if ($equipo->activado == 0)
+                            <form action="/ranking/check">
+                                <input type="checkbox" onClick="change(this.id)" class="filled-in" id="{{$equipo->nombreEquipo}}"/>
+                                <label for="{{$equipo->nombreEquipo}}">Habilitado</label>
+                            </form>
+                        @endif
+                    </td>
+                    <td>
+                        <button>Editar</button>
+
                     </td>
                 </tr>  
                 <?php
@@ -64,6 +82,25 @@
         </table>  
     
     </div>
+
+    <script>
+        function change(idEquipo){
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: "POST",
+                url: 'ranking/enableTeam',
+                data: {id : idEquipo},
+                success: function() {
+                    console.log("Success");
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                    alert("Error: " + errorThrown); 
+                } 
+            })
+        }
+    </script>
 
 </body>
 </html>

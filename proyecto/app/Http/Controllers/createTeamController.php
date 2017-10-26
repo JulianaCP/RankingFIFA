@@ -14,8 +14,13 @@ class createTeamController extends Controller
         $active= 1;
         $idConfederation= $_POST['categorieInsU'];
         try{                                    
+<<<<<<< HEAD
            \DB::select("UPDATE Equipo SET puntos= '".$point."',bandera= '".$flag."',activado= '".$active."', idConfederacion= '".$idConfederation."' WHERE nombre = @nombreP");
             return redirect('/goToMain');
+=======
+           \DB::select('EXEC updateTeam (?,?,?,?,?)',array($name,$point,$flag,$active,$idConfederation));
+            //return redirect('/mostrarhome');
+>>>>>>> origin/master
         }catch(\Illuminate\Database\QueryException $ex){
             echo $ex;
         }
@@ -33,9 +38,14 @@ class createTeamController extends Controller
         $active= 1;
         $idConfederation= $_POST['categorieIns'];
         
+<<<<<<< HEAD
         try{          	                                  
            	\DB::insert("INSERT INTO Equipo(nombreEquipo,puntos,bandera,activado,idConfederacion) VALUES ('".$name."','".$point."','".$flag."','".$active."','".$idConfederation."')");
 
+=======
+        try{    
+            \DB::insert("INSERT INTO Equipo(nombreEquipo,puntos,bandera,activado,idConfederacion) VALUES ('".$name."','".$point."','".$flag."','".$active."','".$idConfederation."')");                                
+>>>>>>> origin/master
             return redirect('/goToMain');
         }catch(\Illuminate\Database\QueryException $ex){
             echo $ex;
