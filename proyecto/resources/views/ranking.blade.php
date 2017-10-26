@@ -70,7 +70,7 @@
                         @endif
                     </td>
                     <td>
-                        <button>Editar</button>
+                        <button onclick="openModalUpdate({{$equipo->nombreEquipo}})">Editar</button>
 
                     </td>
                 </tr>  
@@ -163,16 +163,13 @@
                     </div>
                 </form>            
             </div>                    
-        </div>
-        
-            
-        <button onclick="openModalUpdate()">Update</button>
+        </div>                        
         <div id="container-floating">
-                        <div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Create"
-                         onclick="openModalCreate()">
-                            <p class="plus">+</p>
-                        </div>
-                </div>
+            <div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Create"
+             onclick="openModalCreate()">
+                <p class="plus">+</p>
+            </div>
+        </div>
 
 
 
