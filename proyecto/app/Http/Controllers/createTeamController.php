@@ -16,13 +16,14 @@ class createTeamController extends Controller
         try{                                    
 
 			\DB::insert("UPDATE Equipo SET puntos= '".$point."',bandera= '".$flag."',activado= '".$active."', idConfederacion= '".$idConfederation."' WHERE nombreEquipo = '".$name."')");
-            return redirect('/home');            
+            return redirect('http://localhost:8000/ranking');            
         }catch(\Illuminate\Database\QueryException $ex){
             echo $ex;
         }
     }
 
     public function showTeamInformation(){
+    	echo "entro aqui";
     	$nombreEquipo = $_POST['nombreE'];
  		$equipo= \DB::select("SELECT * FROM Equipo WHERE nombreEquipo = '".$nombreE."')");        
         return $equipo;
@@ -37,7 +38,7 @@ class createTeamController extends Controller
         $idConfederation= $_POST['categorieIns'];       
         try{    
             \DB::insert("INSERT INTO Equipo(nombreEquipo,puntos,bandera,activado,idConfederacion) VALUES ('".$name."','".$point."','".$flag."','".$active."','".$idConfederation."')");                                
-            return redirect('/home');
+            return redirect('http://localhost:8000/ranking');
         }catch(\Illuminate\Database\QueryException $ex){
             echo $ex;
         }

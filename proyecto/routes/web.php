@@ -18,9 +18,6 @@ Route::get('/goToMain', function () {
     return view('createView');
 });
 
-Route::get('/home', function () {
-    return view('ranking');
-});
 
 Route::post('/ranking',  'rankingController@index');
 Route::get('/ranking',  'rankingController@index');
