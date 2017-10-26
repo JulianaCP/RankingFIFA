@@ -14,9 +14,9 @@
     
     <nav class="nav_color">
         <div class="nav-wrapper">
-        <a href="#" class="brand-logo nav_logo">FIFA</a>
+        <a href="/ranking" class="brand-logo nav_logo">FIFA</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/loginAction">Ranking</a></li>
+            <li><a href="/ranking">Ranking</a></li>
             <li><a href="badges.html">Components</a></li>
             <li><a href="collapsible.html">JavaScript</a></li>
         </ul>
@@ -52,8 +52,11 @@
                     <td>{{$equipo->puntos}}</td>
                     <td>{{$equipo->nombreConfederacion}}</td>
                     <td>
+                    <form action="/ranking/check">
                         <input type="checkbox" class="filled-in" id="{{$equipo->nombreEquipo}}"/>
                         <label for="{{$equipo->nombreEquipo}}">Habilitado</label>
+                    </form>
+
                     </td>
                 </tr>  
                 <?php

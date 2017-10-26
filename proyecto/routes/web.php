@@ -19,7 +19,12 @@ Route::get('/goToMain', function () {
     return view('createView');
 });
 
-Route::post('/loginAction',  'rankingController@index');
+Route::post('/ranking',  'rankingController@index');
+Route::get('/ranking',  'rankingController@index');
+
+
+Route::post('/ranking/check','rankingController@checkbox');
+
 Route::post('/create',  'createTeamController@create');
 Route::post('/update',  'createTeamController@update');
 Route::post('/goToMain2',  'createTeamController@show');
