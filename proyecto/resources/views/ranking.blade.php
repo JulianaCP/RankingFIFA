@@ -26,6 +26,7 @@
     </nav>
     <br>    
     <h3 class="centrar_texto"><strong>Ranking</strong></h3>
+    
     <div class="table">
         <table class="responsive-table highlight bordered">
             <thead class="highlight">
@@ -65,13 +66,13 @@
                         @if ($equipo->activado == 0)
                             <form action="/ranking/check">
                                 <input type="checkbox" onClick="change(this.id)" class="filled-in" id="{{$equipo->nombreEquipo}}"/>
+
                                 <label for="{{$equipo->nombreEquipo}}">Habilitado</label>
                             </form>
                         @endif
                     </td>
                     <td>
-                        <button onclick="">Editar</button>
-
+                        <button onClick="openModalUpdate({{$equipo->nombreEquipo}})">Editar</button>
                     </td>
                 </tr>  
                 <?php
@@ -121,10 +122,7 @@
                     </div>                                                            
                 </div>
             </form>            
-        </div>                    
-    
-
-    
+        </div>                        
     
         <div class="modal-content" id="modalBoxUpdate" style="margin-left: 25%;">
             <div class="modal-header">
@@ -207,7 +205,7 @@
         }
 
         function openModalUpdate(nombreE){            
-            /*var item= $.ajax({
+            var item= $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
@@ -226,7 +224,7 @@
             document.getElementById('categorieIns').selectedIndex= item.idConfederacion;
             document.getElementById('nameIns').value=item.nombreEquipo;
             document.getElementById('pointIns').value=item.puntos;
-            document.getElementById('flagIns').value=item.bandera;*/
+            document.getElementById('flagIns').value=item.bandera;
             
             var modal = document.getElementById('modalBoxUpdate');            
             modal.style.display = "block";
