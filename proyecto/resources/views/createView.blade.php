@@ -2,6 +2,15 @@
 <html lang="en">
     <head>
         <title>Control Producto</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up Form</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/main.css">
+
+
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
@@ -11,34 +20,107 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <style type="text/css">
-    /*table*/
-    .tableBox{
-        overflow-x:auto;
-    }
 
-    .tableHead{
-        background-color: black;
-        color: white
-    }
-    .tableHead tr,th{
-        padding: 1%;
-    }
+h1 {
+  margin: 0 0 30px 0;
+  text-align: center;
+}
 
-    .tableBody tr td{
-        border-bottom: 1px solid black;
-        text-align: center;
-        padding: 1%;
-        border-color: #D8D8D8;
-    }
-    .tableBody tr td img{
-        width: 50px;
-        height: 50px;
-    }
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea,
+select {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+}
 
-    .imgClass{
-        width: 50px;
-        height: 50px;
-    }
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 0 4px 8px 0;
+}
+
+select {
+  padding: 6px;
+  height: 32px;
+  border-radius: 2px;
+}
+
+button {
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: #4bc970;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #3ac162;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+}
+
+fieldset {
+  margin-bottom: 30px;
+  border: none;
+}
+
+legend {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+label.light {
+  font-weight: 300;
+  display: inline;
+}
+
+.number {
+  background-color: #5fcf80;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 100%;
+}
+
+@media screen and (min-width: 480px) {
+
+  form {
+    max-width: 480px;
+  }
+
+}
+
+
 
 
      /*Button create*/
@@ -111,7 +193,6 @@
       
 
 
-
       /* Modal box */
 
       .modal {
@@ -137,7 +218,7 @@
         margin: auto;
         padding: 0;
         border: 1px solid #888;
-        width: 50%;
+        width: 40%;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
         -webkit-animation-name: animatetop;
         -webkit-animation-duration: 0.4s;
@@ -177,7 +258,7 @@
     .modal-body {
         padding: 2px 16px;
         background-color: white;
-        height: 400px;
+        height: 450px;
     }
 
     .modal-footer {
@@ -185,74 +266,9 @@
         background-color: white;
     }
 
-
-    /*formulario*/
-    .form{
-        overflow: auto;
-        padding-bottom: 1%;
-        float: left;
-        width: 50%;
-    }
-    .form ul {
-        list-style-type:none;
-        list-style-position:outside;
-        margin:0px;
-        padding:0px;
-    }
-    .form li{
-        padding:12px; 
-        border-bottom:1px solid #eee;
-        position:relative;
-    }
-    .form h4{
-        border-bottom:1px solid #777;
-    }
-
-    label {
-        width:150px;
-        margin-top: 3px;
-        display:inline-block;
-        float:left;
-        padding:3px;
-    }
-    input {
-        height:20px; 
-        width:220px; 
-        padding:5px 8px;
-        border:1px solid #aaa;
-        box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
-        border-radius:2px;
-    }
-    select {
-        width:220px; 
-        padding:5px 8px;
-        border:1px solid #aaa;
-        box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
-        border-radius:2px;
-    }
-    textarea {
-        padding:8px; width:300px;
-        border:1px solid #aaa;
-        box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
-        border-radius:2px;
-
-    }
-
-    input:focus,  textarea:focus {
-        background: #fff; 
-        border:1px solid #555; 
-        box-shadow: 0 0 3px #aaa;
-    } 
-
-    button:active {
-        border: 1px solid #20911e;
-        background-color: darkgreen;         
-    }
-
-    </style>
-
-    <body> 
-        <div id="modalBoxCreateProduct" class="modal">            
+   
+    </style>        
+        <div id="modalBoxCreateTeam" class="modal">            
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close" onclick="closeModalCreate()">&times;</span>
@@ -263,11 +279,12 @@
                     <div class="modal-body">
                         <div class="form">
                             <ul>
-                                <h4>Digite los datos</h4>
+                                <legend><span class="number">1</span>Información</legend>                                
                                 <li>
                                     <label for="name">Nombre:</label>
                                     <input type="text" name="nameIns" placeholder="Digite el nombre" id="nameIns"/>
-                                </li>                                          
+                                </li>                       
+
                                 <li>
                                     <label for="price">Puntos:</label>
                                     <input type="number" name="pointIns" placeholder="Digite los puntos" id="pointIns"/>
@@ -283,16 +300,58 @@
                                         <option value="6">UEFA</option>         
                                     </select>
                                 </li>
-                                <input type="file" id="flagIns" name="flagIns">                                
+                                <input type="file" id="flagIns" name="flagIns">
+                                <button type="submit" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 50%;">Aceptar</button>                                
                             </ul>
-                        </div>                                    
-                        <div class="modal-footer">
-                            <button type="submit">Aceptar</button>
-                        </div>                            
+                        </div>                                                            
+                    </div>
+                </form>            
+            </div>                    
+        </div>        
+
+        
+        <div id="modalBoxUpdate" class="modal">            
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close" onclick="closeModalUpdate()">&times;</span> <h3>Actualizar Equipo</h3>                  
+                </div>
+                <form method="post"  action="http://localhost:8000/update" accept-charset="UTF-8">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <div class="modal-body">
+                        <div class="form">
+                            <ul>
+                                <legend><span class="number">1</span>Información</legend>                                
+                                <li>
+                                    <label for="name">Nombre:</label>
+                                    <input type="text" name="nameInsU" placeholder="Digite el nombre" id="nameInsU"/>
+                                </li>                       
+
+                                <li>
+                                    <label for="price">Puntos:</label>
+                                    <input type="number" name="pointInsU" placeholder="Digite los puntos" id="pointInsU"/>
+                                </li>                                                     
+                                <li>
+                                    <label for="categorieInsU">Confederacion:</label>
+                                    <select id="categorieInsU" name="categorieInsU">
+                                        <option value="1" selected>CAF</option>
+                                        <option value="2">CONCACAF</option>
+                                        <option value="3">CONMEBOL</option>
+                                        <option value="4">OFC</option>
+                                        <option value="5">AFC</option>
+                                        <option value="6">UEFA</option>         
+                                    </select>
+                                </li>
+                                <input type="file" id="flagInsU" name="flagInsU">
+                                <button type="submit" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 50%;">Aceptar</button>                                
+                            </ul>
+                        </div>                                                            
                     </div>
                 </form>            
             </div>                    
         </div>
+        
+            
+        <button onclick="openModalUpdate()">Update</button>
         <div id="container-floating">
                         <div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Create"
                          onclick="openModalCreate()">
@@ -302,21 +361,38 @@
 
 
     <script>                
+        $('input[type=file]').change(function () {
+            console.log("222222222222");
+            console.log(this.getFilePath());
+        });
         function openModalCreate(){            
-            var modal = document.getElementById('modalBoxCreateProduct');
+            var modal = document.getElementById('modalBoxCreateTeam');
             modal.style.display = "block";
         }
         function closeModalCreate(){            
-            var modal = document.getElementById('modalBoxCreateProduct');
+            var modal = document.getElementById('modalBoxCreateTeam');
             modal.style.display = "none";            
 
-            $("#nameInput").val("");
-            $("#descriptionInput").val("");
-            $("#priceInput").val("");
-            $("#amountInput").val(1);
-            $("#categorieInput").val("woman")
+            $("#nameIns").val("");
+            $("#pointIns").val(0);
+            $("#categorieIns").val("");
+            $("#flagIns").val("");
+            
 
         }
+        function openModalUpdate(){            
+            var modal = document.getElementById('modalBoxUpdate');
+            modal.style.display = "block";
+        }
+        function closeModalUpdate(){            
+            var modal = document.getElementById('modalBoxUpdate');
+            modal.style.display = "none";            
+
+            $("#nameIns").val("");
+            $("#pointIns").val(0);
+            $("#categorieIns").val("");
+            $("#flagIns").val("");            
+        }        
     </script>
     </body>
 </html>
