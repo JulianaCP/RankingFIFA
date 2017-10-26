@@ -116,7 +116,7 @@
                                     </select>
                                 </li>
                                 <input type="file" id="flagIns" name="flagIns">
-                                <button type="submit" class="button" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 50%;">Aceptar</button>                                
+                                <button type="submit" class="button" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 10%;">Aceptar</button>                                
                             </ul>
                         </div>                                                            
                     </div>
@@ -157,7 +157,7 @@
                                     </select>
                                 </li>
                                 <input type="file" id="flagInsU" name="flagInsU">
-                                <button class="button" type="submit" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 50%;">Aceptar</button>                                
+                                <button class="button" type="submit" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 10%;">Aceptar</button>                                
                             </ul>
                         </div>                                                            
                     </div>
