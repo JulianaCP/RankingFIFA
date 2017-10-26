@@ -12,14 +12,80 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+
     <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/plantilla.css" rel="stylesheet">
-    <link href="css/table.css" rel="stylesheet">                
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </script>
 </head>
+    <script>
+        function change(idEquipo){
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: "POST",
+                url: 'ranking/enableTeam',
+                data: {id : idEquipo},
+                success: function() {
+                    console.log("Success");
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                    alert("Error: " + errorThrown); 
+                } 
+            })
+        }
+        function openModalCreate(){            
+            var modal = document.getElementById('modalBoxCreateTeam');
+            modal.style.display = "block";
+        }
+        
+        function closeModalCreate(){            
+            var modal = document.getElementById('modalBoxCreateTeam');
+            modal.style.display = "none";            
+
+            $("#nameIns").val("");
+            $("#pointIns").val(0);
+            $("#categorieIns").val("");
+            $("#flagIns").val("");            
+        }
+
+        function openModalUpdate(nombreE){            
+            var item= $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: "POST",
+                url: 'updateElements',
+                data: {nombreE : nombreE},
+                success: function() {
+                    console.log("Success");
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                    alert("Error: " + errorThrown); 
+                } 
+            });
+            alert(typeof(item));
+            alert(item.nombreEquipo);            
+            document.getElementById('categorieIns').selectedIndex=; item.idConfederacion;
+            document.getElementById('nameIns').value=item.nombreEquipo;
+            document.getElementById('pointIns').value=item.puntos;
+            document.getElementById('flagIns').value=item.bandera;
+            
+            var modal = document.getElementById('modalBoxUpdate');            
+            modal.style.display = "block";
+        }
+        
+        function closeModalUpdate(){            
+            var modal = document.getElementById('modalBoxUpdate');
+            modal.style.display = "none";            
+
+            $("#nameIns").val("");
+            $("#pointIns").val(0);
+            $("#categorieIns").val("");
+            $("#flagIns").val("");            
+        }        
+</script>     
 <body class="body">
     
     <div id="modalBoxCreateTeam" class="modal">            
@@ -182,75 +248,6 @@
          onclick="openModalCreate()">
             <p class="plus">+</p>
         </div>
-    </div>
-    
-    <script>
-        function change(idEquipo){
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type: "POST",
-                url: 'ranking/enableTeam',
-                data: {id : idEquipo},
-                success: function() {
-                    console.log("Success");
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) { 
-                    alert("Error: " + errorThrown); 
-                } 
-            })
-        }
-        function openModalCreate(){            
-            var modal = document.getElementById('modalBoxCreateTeam');
-            modal.style.display = "block";
-        }
-        function closeModalCreate(){            
-            var modal = document.getElementById('modalBoxCreateTeam');
-            modal.style.display = "none";            
-
-            $("#nameIns").val("");
-            $("#pointIns").val(0);
-            $("#categorieIns").val("");
-            $("#flagIns").val("");            
-        }
-
-        function openModalUpdate(nombreE){            
-            var item= $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type: "POST",
-                url: 'updateElements',
-                data: {nombreE : nombreE},
-                success: function() {
-                    console.log("Success");
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) { 
-                    alert("Error: " + errorThrown); 
-                } 
-            });
-            alert(typeof(item));
-            alert(item.nombreEquipo);            
-            document.getElementById('categorieIns').selectedIndex=; item.idConfederacion;
-            document.getElementById('nameIns').value=item.nombreEquipo;
-            document.getElementById('pointIns').value=item.puntos;
-            document.getElementById('flagIns').value=item.bandera;
-            
-            var modal = document.getElementById('modalBoxUpdate');            
-            modal.style.display = "block";
-        }
-        function closeModalUpdate(){            
-            var modal = document.getElementById('modalBoxUpdate');
-            modal.style.display = "none";            
-
-            $("#nameIns").val("");
-            $("#pointIns").val(0);
-            $("#categorieIns").val("");
-            $("#flagIns").val("");            
-        }        
-
-    </script>     
-   
+    </div>    
 </body>
 </html>
