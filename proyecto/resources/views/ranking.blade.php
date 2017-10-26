@@ -22,7 +22,7 @@
 </head>
 <body class="body">
     
-    <div id="modalBoxCreateTeam" style="display: none;">            
+    <div id="modalBoxCreateTeam" class="modal">            
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close" onclick="closeModalCreate()">&times;</span>
@@ -64,7 +64,7 @@
     </div>        
 
         
-    <div id="modalBoxUpdate" style="display: none;">            
+    <div id="modalBoxUpdate" class="modal">            
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close" onclick="closeModalUpdate()">&times;</span> <h5>Actualizar Equipo</h5>                  
