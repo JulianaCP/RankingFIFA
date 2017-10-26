@@ -225,7 +225,7 @@
             });
             alert(typeof(item));
             alert(item.nombreEquipo);            
-            document.getElementById('categorieIns').selectedIndex=; item.idConfederacion;
+            document.getElementById('categorieIns').selectedIndex= item.idConfederacion;
             document.getElementById('nameIns').value=item.nombreEquipo;
             document.getElementById('pointIns').value=item.puntos;
             document.getElementById('flagIns').value=item.bandera;
