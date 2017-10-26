@@ -125,7 +125,7 @@
         </div>        
 
         
-        <div id="modalBoxUpdate" style="display: none;">            
+        <div id="modalBoxUpdate" class="modal">            
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close" onclick="closeModalUpdate()">&times;</span> <h3>Actualizar Equipo</h3>                  

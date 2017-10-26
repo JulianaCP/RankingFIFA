@@ -27,6 +27,7 @@ class createTeamController extends Controller
  		$equipo= \DB::select("SELECT * FROM Equipo WHERE nombreEquipo = '".$nombreE."')");        
         return $equipo;
     }
+
     public function create()
     {        
         $name= $_POST['nameIns'];
