@@ -52,8 +52,8 @@
                     <td>{{$equipo->puntos}}</td>
                     <td>{{$equipo->nombreConfederacion}}</td>
                     <td>
-                        <input type="checkbox" class="filled-in" id="filled-in-box"/>
-                        <label for="filled-in-box">Habilitado</label>
+                        <input type="checkbox" class="filled-in" id="{{$equipo->nombreEquipo}}"/>
+                        <label for="{{$equipo->nombreEquipo}}">Habilitado</label>
                     </td>
                 </tr>  
                 <?php
