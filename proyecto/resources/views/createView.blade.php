@@ -172,7 +172,8 @@
         }
 
         function openModalUpdate(nombreE){            
-            var item= $.ajax({
+            alert(nombreE);
+            /*var item= $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
@@ -191,7 +192,7 @@
             document.getElementById('categorieIns').selectedIndex= item.idConfederacion;
             document.getElementById('nameIns').value=item.nombreEquipo;
             document.getElementById('pointIns').value=item.puntos;
-            document.getElementById('flagIns').value=item.bandera;
+            document.getElementById('flagIns').value=item.bandera;*/
             
             var modal = document.getElementById('modalBoxUpdate');            
             modal.style.display = "block";

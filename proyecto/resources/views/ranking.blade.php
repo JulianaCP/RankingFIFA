@@ -45,7 +45,6 @@
                     $contador = 1;
                 ?>
             @foreach($listaEquipos as $equipo)
-
                 <tr>
                     <td><?php echo $contador ?></td>
                     <td>
@@ -160,8 +159,7 @@
                 </div>                                                            
             </div>
         </form>            
-    </div>                    
-    
+    </div>                        
     
     <div id="container-floating">
         <div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Create"
