@@ -32,6 +32,7 @@
                     <th scope="col">Equipo</th>
                     <th scope="col">Puntos</th>
                     <th scope="col">Confederación</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -44,12 +45,16 @@
                     <td><?php echo $contador ?></td>
                     <td>
                         <div class="table_imagen"><img src="{{$equipo->bandera}}" alt=""></div>
-                        <div class="table_centrar_texto">{{$equipo->nombrEquipo}}</div>
+                        <div class="table_centrar_texto">{{$equipo->nombreEquipo}}</div>
                         
                     
                     </td>
                     <td>{{$equipo->puntos}}</td>
-                    <td>@mdo</td>
+                    <td>{{$equipo->nombreConfederacion}}</td>
+                    <td>
+                        <input type="checkbox" class="filled-in" id="filled-in-box"/>
+                        <label for="filled-in-box">Habilitado</label>
+                    </td>
                 </tr>  
                 <?php
                     $contador = $contador + 1;
