@@ -25,7 +25,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close" onclick="closeModalCreate()">&times;</span>
-                <h3>Crear Equipo</h3>
+                <h5>Crear Equipo</h5>
             </div>
             <form method="post"  action="http://localhost:8000/create" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -54,7 +54,7 @@
                                 </select>
                             </li>
                             <input type="file" id="flagIns" name="flagIns">
-                            <button type="submit" class="button" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 50%;">Aceptar</button>                                
+                            <button type="submit" class="button" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 15%;">Aceptar</button>                                
                         </ul>
                     </div>                                                            
                 </div>
@@ -66,7 +66,7 @@
     <div id="modalBoxUpdate" class="modal">            
         <div class="modal-content">
             <div class="modal-header">
-                <span class="close" onclick="closeModalUpdate()">&times;</span> <h3>Actualizar Equipo</h3>                  
+                <span class="close" onclick="closeModalUpdate()">&times;</span> <h5>Actualizar Equipo</h5>                  
             </div>
             <form method="post"  action="http://localhost:8000/update" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -95,7 +95,7 @@
                                 </select>
                             </li>
                             <input type="file" id="flagInsU" name="flagInsU">
-                            <button class="button" type="submit" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 50%;">Aceptar</button>                                
+                            <button class="button" type="submit" style="width: 150px; height: 50px; float: right;margin-top: 2%;margin-left: 15%;">Aceptar</button>                                
                         </ul>
                     </div>                                                            
                 </div>
@@ -226,6 +226,7 @@
             $("#categorieIns").val("");
             $("#flagIns").val("");            
         }        
+
     </script>     
    
 </body>

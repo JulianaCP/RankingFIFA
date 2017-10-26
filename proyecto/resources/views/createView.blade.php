@@ -131,7 +131,7 @@ label.light {
         background: black;
         position: fixed;
         right: 30px;
-        top: 70px;
+        top: 150px;
         cursor: pointer;
         box-shadow: 0px 2px 5px #666;
       }

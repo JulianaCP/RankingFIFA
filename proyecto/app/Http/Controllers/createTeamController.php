@@ -15,7 +15,7 @@ class createTeamController extends Controller
         $idConfederation= $_POST['categorieInsU'];
         try{                                    
 
-           \DB::select("UPDATE Equipo SET puntos= '".$point."',bandera= '".$flag."',activado= '".$active."', idConfederacion= '".$idConfederation."' WHERE nombreEquipo = ".$name.")";
+			\DB::select("UPDATE Equipo SET puntos= '".$point."',bandera= '".$flag."',activado= '".$active."', idConfederacion= '".$idConfederation."' WHERE nombreEquipo = ".$name.")");
             return redirect('/goToMain');            
         }catch(\Illuminate\Database\QueryException $ex){
             echo $ex;
