@@ -18,11 +18,11 @@
     <link href="css/plantilla.css" rel="stylesheet">
     <link href="css/table.css" rel="stylesheet">                
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </script>
 </head>
 <body class="body">
     
-    <div id="modalBoxCreateTeam">            
+    <div id="modalBoxCreateTeam" style="display: none;">            
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close" onclick="closeModalCreate()">&times;</span>
@@ -64,7 +64,7 @@
     </div>        
 
         
-    <div id="modalBoxUpdate">            
+    <div id="modalBoxUpdate" style="display: none;">            
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close" onclick="closeModalUpdate()">&times;</span> <h5>Actualizar Equipo</h5>                  

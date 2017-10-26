@@ -16,8 +16,7 @@
         <link href="css/style.css" rel="stylesheet">
         <link href="css/plantilla.css" rel="stylesheet">
         <link href="css/table.css" rel="stylesheet">                
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>       
     </head>
     <style type="text/css">
 
@@ -310,7 +309,7 @@ label.light {
         </div>        
 
         
-        <div id="modalBoxUpdate" class="modal">            
+        <div id="modalBoxUpdate" style="display: none;">            
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close" onclick="closeModalUpdate()">&times;</span> <h3>Actualizar Equipo</h3>                  
@@ -376,22 +375,8 @@ label.light {
             
 
         }
-        function openModalUpdate(){   
-            var item= $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type: "POST",
-                url: 'ranking/enableTeam',
-                data: {id : idEquipo},
-                success: function() {
-                    console.log("Success");
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) { 
-                    alert("Error: " + errorThrown); 
-                } 
-            });
-            alert(typeof(item));
+        
+        function openModalUpdate(){               
             var modal = document.getElementById('modalBoxUpdate');
             modal.style.display = "block";
         }
