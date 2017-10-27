@@ -6,84 +6,59 @@ use Illuminate\Http\Request;
 
 class rankingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $listaEquipos= \DB::select('SELECT * FROM Equipo AS e inner join Confederacion AS c ON(e.idConfederacion=c.id) ORDER BY puntos DESC');
-        $envioDatosEquipo = ['listaEquipos' => $listaEquipos];
-        return View('ranking', $envioDatosEquipo);
+        try{
+            $listaEquipos= \DB::select('SELECT * FROM Equipo AS e inner join Confederacion AS c ON(e.idConfederacion=c.id) ORDER BY puntos DESC');
+            $envioDatosEquipo = ['listaEquipos' => $listaEquipos];
+            return View('ranking', $envioDatosEquipo);
+        } catch(\Illuminate\Database\QueryException $ex){
+            return $e;
+        }
     }
     public function enableTeam()
     {
         $nombreEquipo = $_POST['id'];
         \DB::statement("EXEC changeEnableAttributeTeam '" . $nombreEquipo . "'");
-
     }
+    //UPDATE
+    public function updateTeam($idEquipo){
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        try{
+            $equipo= \DB::select("SELECT * FROM Equipo where nombreEquipo='".$idEquipo."'");
+            $envioDatosEquipo = ['equipo' => $equipo];
+            return view("updateTeam",$envioDatosEquipo);
+        } catch(\Illuminate\Database\QueryException $ex){
+            return $e;
+        }
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function updateTeamDone(){
+        $name= $_POST['teamName'];
+        $point= $_POST['puntosEquipo'];
+        $flag= $_POST['flagInsU'];
+        $flag = '../img/'.$flag;
+        $idConfederation= $_POST['categorieInsU'];
+        try{
+            \DB::insert("UPDATE Equipo SET puntos= '".$point."',bandera= '".$flag."', idConfederacion= '".$idConfederation."' WHERE nombreEquipo = '".$name."'");
+            return redirect('/ranking'); 
+        } catch(\Illuminate\Database\QueryException $ex){
+            return $e;
+        }
     }
+    //CREATE
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function createTeamDone(){
+        $name= $_POST['nombreEquipo'];
+        $point= $_POST['pointsTeam'];
+        $flag= $_POST['flagInsU'];
+        $flag = '../img/'.$flag;
+        $active= 1;
+        $idConfederation= $_POST['categorieInsU'];       
+        try{
+            \DB::insert("INSERT INTO Equipo(nombreEquipo,puntos,bandera,activado,idConfederacion) VALUES ('".$name."','".$point."','".$flag."','".$active."','".$idConfederation."')");                                
+            return redirect('/ranking'); 
+        } catch(\Illuminate\Database\QueryException $ex){
+            return $e;
+        }
     }
 }

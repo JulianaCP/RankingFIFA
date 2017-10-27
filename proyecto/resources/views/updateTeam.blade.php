@@ -19,33 +19,33 @@
         </ul>
         </div>
     </nav>
-
-    <br>
     
-    <form method="post"  action="http://localhost:8000/createTeam/done" accept-charset="UTF-8">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">  
+    <form method="post"  action="http://localhost:8000/updateTeam/done" accept-charset="UTF-8">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+        <input type="hidden" name="teamName" id="teamName" value="{{$equipo[0]->nombreEquipo}}">
+        
+        <input type="hidden" type="number" id="idConfereacionTeam" value="{{$equipo[0]->idConfederacion}}">
+        
+        <br>    
 
         <div class="row card_center">
             <div class="card">
-                <div class="card-content centrarInput ">
-                    <h3 class="centrar_texto"><strong>Crear Equipo</strong></h3>
+                <div class="card-content centrarInput">
+                    <h3 class="centrar_texto"><strong>Editar Equipo</strong></h3>
                     <div class="centrarInput">
-                        <div class="row">
-                            <div class="input-field ">
-                                <input placeholder="Placeholder" name="nombreEquipo" id="nombreEquipo" type="text">
-                            </div>
-                        </div>
+                        <p><strong>{{$equipo[0]->nombreEquipo}}</strong></p>
                     
                         <div class="row">
-                            <div class="input-field" >
-                                <input placeholder="Placeholder" name="pointsTeam" id="pointsTeam" type="number">
+                            <div class="input-field">
+                                <input placeholder="Puntos" name="puntosEquipo" id="puntosEquipo" type="number" value="{{$equipo[0]->puntos}}">
                             </div>
                         </div>
 
                         <div class="row">
                             <label for="categorieInsU">Confederacion:</label>
                             <select id="categorieInsU" name="categorieInsU" class="select_correction input-field">
-                                <option value="1" selected>CAF</option>
+                                <option value="1" >CAF</option>
                                 <option value="2">CONCACAF</option>
                                 <option value="3">CONMEBOL</option>
                                 <option value="4">OFC</option>
@@ -61,9 +61,21 @@
                         <div class="row">
                             <button class="waves-effect waves-light btn input-field widthButtonInput">Aceptar</button>
                         </div>
+
                     </div>
+
             </div>
         </div>
     </form>
+
+    <script>
+        $(document).ready(function(){
+            var value = $("#idConfereacionTeam").val();
+            $("#categorieInsU").val(value);
+        });
+        
+        
+    
+    </script>
 </body>
 </html>

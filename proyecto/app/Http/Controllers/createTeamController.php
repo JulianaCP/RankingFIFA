@@ -8,24 +8,21 @@ class createTeamController extends Controller
 {
     public function edit($id)
     {
-        $name= $_POST['nameInsU'];
-        $point= $_POST['pointInsU'];
-        $flag= $_POST['flagInsU'];
+        $name= $_POST['nameIns'];
+        $point= $_POST['pointIns'];
+        $flag= $_POST['flagIns'];
         $active= 1;
-        $idConfederation= $_POST['categorieInsU'];
+        $idConfederation= $_POST['idConfederationIns'];
         try{                                    
-
-			\DB::insert("UPDATE Equipo SET puntos= '".$point."',bandera= '".$flag."',activado= '".$active."', idConfederacion= '".$idConfederation."' WHERE nombreEquipo = '".$name."')");
-            return redirect('/home');            
+           \DB::select('EXEC updateTeam (?,?,?,?,?)',array($name,$point,$flag,$active,$idConfederation));
+            //return redirect('/mostrarhome');
         }catch(\Illuminate\Database\QueryException $ex){
-            echo $ex;
+            //return redirect('/mensajeError'); 
         }
     }
 
-    public function showTeamInformation(){
-    	$nombreEquipo = $_POST['nombreE'];
- 		$equipo= \DB::select("SELECT * FROM Equipo WHERE nombreEquipo = '".$nombreE."')");        
-        return $equipo;
+    public function show(){
+    	return View('createView');
     }
 
     public function create()
@@ -34,10 +31,12 @@ class createTeamController extends Controller
         $point= $_POST['pointIns'];
         $flag= $_POST['flagIns'];
         $active= 1;
-        $idConfederation= $_POST['categorieIns'];       
+        $fullDir = './img/'. $flag;
+        $idConfederation= $_POST['categorieIns'];
+        return $fullDir;
         try{    
-            \DB::insert("INSERT INTO Equipo(nombreEquipo,puntos,bandera,activado,idConfederacion) VALUES ('".$name."','".$point."','".$flag."','".$active."','".$idConfederation."')");                                
-            return redirect('/home');
+            \DB::insert("INSERT INTO Equipo(nombreEquipo,puntos,bandera,activado,idConfederacion) VALUES ('".$name."','".$point."','".$fullDir."','".$active."','".$idConfederation."')");                                
+            return redirect('/goToMain');
         }catch(\Illuminate\Database\QueryException $ex){
             echo $ex;
         }

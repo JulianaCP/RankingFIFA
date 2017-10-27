@@ -14,17 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/goToMain', function () {
-    return view('createView');
-});
-
-Route::get('/home', function () {
-    return view('ranking');
-});
-
 Route::post('/ranking',  'rankingController@index');
 Route::get('/ranking',  'rankingController@index');
 Route::post('/ranking/enableTeam','rankingController@enableTeam');
-Route::post('/create',  'createTeamController@create');
-Route::post('/update',  'createTeamController@update');
-Route::post('/updateElements',  'createTeamController@showTeamInformation');
+
+Route::get('/updateTeam/{idEquipo}',  'rankingController@updateTeam');
+Route::post('/updateTeam/done',  'rankingController@updateTeamDone');
+
+Route::get('/createTeam', function () {
+    return view('createView');
+});
+Route::post('/createTeam/done',  'rankingController@createTeamDone');
+
