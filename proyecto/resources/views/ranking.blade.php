@@ -87,22 +87,24 @@
         </div>
     </div>
 
-
     <footer class="page-footer footer_color">
+        <div style="text-align:center;">
+            <h5 class="white-text">FIFA</h5>        
+            <p >Para más información visíte:</p>
+            <a href="http://es.fifa.com/fifa-world-ranking/ranking-table/men/index.html">Fifa World Ranking</a>
+        </div>    
         <div class="container">
             <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                <div class="col l6 s12">                
+                    
                 </div>
             </div>
+        </div>                           
+        <div style="text-align:center;">
+            Copyright© 1994 - 2017 FIFA. Reservados todos los derechos            
+            <br>
+            <br>            
         </div>
-        <div class="footer-copyright">
-            <div class="container">
-            Copyright© 1994 - 2017 FIFA. Reservados todos los derechos
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-        </div>
-    </footer>
+    </footer>    
 </body>
 </html>

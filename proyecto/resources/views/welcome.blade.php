@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <title>Laravel</title>
 
         <!-- Fonts -->
@@ -58,23 +59,40 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
-
+            .divPrincipal{
+                background-color: white;
+                height: 400px;
+                width: 500px;
+                border-color: black;
+                border-radius: 10px;
+            }
             .m-b-md {
                 margin-bottom: 30px;
             }
+             body{
+                    background:#8ba987 url('img/fondo.jpg') no-repeat center center;
+                    background-size:100% 100%;
+                }
         </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+    </head>    
+
+    <body>           
+        <div class="flex-center position-ref full-height">            
+            <div class="divPrincipal">
+                <div class="content">
+                    <br>
+                    <br>
+                    <div class="title m-b-md">
+                        FIFA                        
+                    </div>
+                    <h5 style="color: black;">Para ingresar presione el siguiente botón</h5>
+                    <br>
+                    <form method="post"  action="http://localhost:8000/ranking" accept-charset="UTF-8">                        
+                        <button class="waves-effect waves-light btn input-field widthButtonInput" style="height: 50px; width: 250px;">Ingresar</button>
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    </form>
                 </div>
-                <form method="post"  action="http://localhost:8000/ranking" accept-charset="UTF-8">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <button type="submit" style="box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5), 0 4px 4px 0 rgba(0, 0, 0, 0.5)" class="btn btn-info">Sign in</button>
-                </form>
-            </div>
+            </div>            
         </div>
     </body>
 </html>

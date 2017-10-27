@@ -61,13 +61,31 @@
                         <div class="row">
                             <button class="waves-effect waves-light btn input-field widthButtonInput">Aceptar</button>
                         </div>
-
                     </div>
-
+                </div>
             </div>
         </div>
     </form>
-
+    
+    <footer class="page-footer footer_color">
+        <div style="text-align:center;">
+            <h5 class="white-text">FIFA</h5>        
+            <p >Para más información visíte:</p>
+            <a href="http://es.fifa.com/fifa-world-ranking/ranking-table/men/index.html">Fifa World Ranking</a>
+        </div>    
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">                
+                    
+                </div>
+            </div>
+        </div>                           
+        <div style="text-align:center;">
+            Copyright© 1994 - 2017 FIFA. Reservados todos los derechos            
+            <br>
+            <br>            
+        </div>
+    </footer>    
     <script>
         $(document).ready(function(){
             var value = $("#idConfereacionTeam").val();
