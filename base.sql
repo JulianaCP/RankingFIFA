@@ -6,7 +6,7 @@ use proyecto_web_dos;
 
 CREATE TABLE Confederacion(
 	id INT IDENTITY PRIMARY KEY,
-	nombre VARCHAR(50)
+	nombreConfederacion VARCHAR(50)
 );
 
 
@@ -22,7 +22,7 @@ CREATE TABLE Equipo(
 
 
 
-INSERT INTO Confederacion(nombre)
+INSERT INTO Confederacion(nombreConfederacion)
 	VALUES
 		('CAF'),
 		('CONCACAF'),
