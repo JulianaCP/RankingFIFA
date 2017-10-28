@@ -27,6 +27,16 @@ class teamController extends Controller
 
 
     //CREATE
+    public function createTeam(){
+        try{
+            $listConfederations= \DB::select("SELECT * FROM Confederacion");
+            $envioDatoslistConfederations = ['listConfederations' => $listConfederations];
+            return view('createTeam',$envioDatoslistConfederations);
+        }catch(\Illuminate\Database\QueryException $ex){
+            return $ex;
+        }
+
+    }
     public function createTeamDone(){
         $name= $_POST['nombreEquipo'];
         $point= $_POST['pointsTeam'];
@@ -42,28 +52,30 @@ class teamController extends Controller
         }
     }
 
-        //UPDATE
-        public function updateTeam($idEquipo){
-            
-            try{
-                $equipo= \DB::select("SELECT * FROM Equipo where nombreEquipo='".$idEquipo."'");
-                $envioDatosEquipo = ['equipo' => $equipo];
-                return view("updateTeam",$envioDatosEquipo);
-            } catch(\Illuminate\Database\QueryException $ex){
-                return $e;
-            }
+    //UPDATE
+    public function updateTeam($idEquipo){
+        
+        try{
+            $equipo= \DB::select("SELECT * FROM Equipo where nombreEquipo='".$idEquipo."'");
+            $listConfederations= \DB::select("SELECT * FROM Confederacion");
+            $envioDatosEquipo = ['equipo' => $equipo];
+            $envioDatoslistConfederations = ['listConfederations' => $listConfederations];
+            return view("updateTeam",$envioDatosEquipo,$envioDatoslistConfederations);
+        } catch(\Illuminate\Database\QueryException $ex){
+            return $e;
         }
-        public function updateTeamDone(){
-            $name= $_POST['teamName'];
-            $point= $_POST['puntosEquipo'];
-            $flag= $_POST['flagInsU'];
-            $flag = '../img/'.$flag;
-            $idConfederation= $_POST['categorieInsU'];
-            try{
-                \DB::insert("UPDATE Equipo SET puntos= '".$point."',bandera= '".$flag."', idConfederacion= '".$idConfederation."' WHERE nombreEquipo = '".$name."'");
-                return redirect('/ranking'); 
-            } catch(\Illuminate\Database\QueryException $ex){
-                return $e;
-            }
+    }
+    public function updateTeamDone(){
+        $name= $_POST['teamName'];
+        $point= $_POST['puntosEquipo'];
+        $flag= $_POST['flagInsU'];
+        $flag = '../img/'.$flag;
+        $idConfederation= $_POST['categorieInsU'];
+        try{
+            \DB::insert("UPDATE Equipo SET puntos= '".$point."',bandera= '".$flag."', idConfederacion= '".$idConfederation."' WHERE nombreEquipo = '".$name."'");
+            return redirect('/ranking'); 
+        } catch(\Illuminate\Database\QueryException $ex){
+            return $e;
         }
+    }
 }

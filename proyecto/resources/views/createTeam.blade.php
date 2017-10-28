@@ -46,12 +46,16 @@
                         <div class="row">
                             <label for="categorieInsU">Confederacion:</label>
                             <select id="categorieInsU" name="categorieInsU" class="select_correction input-field">
-                                <option value="1" selected>CAF</option>
-                                <option value="2">CONCACAF</option>
-                                <option value="3">CONMEBOL</option>
-                                <option value="4">OFC</option>
-                                <option value="5">AFC</option>
-                                <option value="6">UEFA</option>         
+                                <?php
+                                    $contador = 1;
+                                ?>    
+                                @foreach($listConfederations as $confederacy)
+                                    <option value="<?php echo $contador ?>">{{$confederacy->nombreConfederacion}}</option>
+
+                                    <?php
+                                        $contador = $contador + 1;
+                                    ?>
+                                @endforeach          
                             </select>
                         </div>
                         <div class="row">

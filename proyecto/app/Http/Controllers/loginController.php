@@ -32,7 +32,8 @@ class loginController extends Controller
         for ($i=0; $i < count($listaUsuarios); $i++) { 
             if($listaUsuarios[$i]->nombreUsuario == $username && $listaUsuarios[$i]->contrasenna == $password){
                 session_start();
-                $_SESSION['fullName'] = $listaUsuarios[$i]->nombreCompleto;
+                $_SESSION['fullName'] = $listaUsuarios[$i]->nombre 
+                    . " " . $listaUsuarios[$i]->apellido1 . " " .$listaUsuarios[$i]->apellido2;
                 return redirect('/ranking');
             }
         }

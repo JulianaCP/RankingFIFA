@@ -18,9 +18,7 @@ Route::post('/updateTeam/done',  'teamController@updateTeamDone');
 
 
 //create Team
-Route::get('/createTeam', function () {
-    return view('createTeam');
-});
+Route::get('/createTeam', 'teamController@createTeam');
 Route::post('/createTeam/done',  'teamController@createTeamDone');
 
 

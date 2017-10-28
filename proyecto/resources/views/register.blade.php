@@ -19,21 +19,34 @@
                 <div class="card-content centrarInput ">
                     <h3 class="centrar_texto"><strong>Registrarse</strong></h3>
                     <div class="centrarInput">
-                        <div class="input-field">
-                            <input id="fullName" name="fullName" type="text"
-                            placeholder="Nombre Completo" class="black_letter">
-
+                        <div>
+                            <div class="input-field col s4">
+                                <input id="name" name="name" type="text"
+                                placeholder="Nombre" class="black_letter">
+                            </div>
+                            <div class="input-field col s4">
+                                <input id="firstSurname" name="firstSurname" type="text"
+                                placeholder="Primer Apellido" class="black_letter">
+                            </div>
+                            <div class="input-field col s4">
+                                <input id="secondSurname" name="secondSurname" type="text"
+                                placeholder="Segundo Apellido" class="black_letter">
+                            </div>
                         </div>
-                        <div class="input-field">
-                            <input id="user_name" name="user_name" type="text"
-                            placeholder="Nombre de Usuario" class="black_letter">
 
+                        <div class="input-field col s12">
+                            <input id="age" name="age" type="number"
+                            placeholder="Edad" class="black_letter">
                         </div>
-                        <div class="input-field">
+                        <div class="input-field col s12">
+                                <input id="username" name="username" type="text"
+                                placeholder="Nombre de usuario" class="black_letter">
+                            </div>
+                        <div class="input-field col s12">
                             <input id="password" name="password" type="password"
                             placeholder="Contraseña" class="black_letter">
                         </div>
-                        <div class="input-field">
+                        <div class="input-field col s12">
                             <input id="confirmPassword" name="confirmPassword" type="password"
                             placeholder="Confirmar contraseña" class="black_letter">
                         </div>
