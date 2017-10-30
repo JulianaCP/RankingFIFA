@@ -9,8 +9,6 @@ CREATE TABLE Confederacion(
 	nombreConfederacion VARCHAR(50)
 );
 
-
-
 CREATE TABLE Equipo(
 	nombreEquipo VARCHAR(100) PRIMARY KEY,
 	puntos int NOT NULL,
@@ -21,17 +19,25 @@ CREATE TABLE Equipo(
 );
 
 CREATE TABLE Usuario(
-	nombreUsuario	VARCHAR(100) PRIMARY KEY,
-	nombreCompleto	VARCHAR(200) NOT NULL,
+	nombre	VARCHAR(100) PRIMARY KEY,
+	apellido1 VARCHAR(100) NOT NULL,
+	apellido2 VARCHAR(100) NOT NULL,
+	edad INT NOT NULL,
+	fechaRegistro	DATETIME DEFAULT GETDATE(),
+	nombreUsuario	VARCHAR(200) NOT NULL,
 	contrasenna		VARCHAR(100) NOT NULL
 );
 
-INSERT INTO Usuario(nombreUsuario, nombreCompleto,contrasenna)
+
+
+
+
+INSERT INTO Usuario(nombre,apellidO1,apellido2,edad,nombreUsuario,contrasenna)
 	VALUES
-		('Ana','Ana Rosa Flores','1234'),
-		('JCP','Juliana Campos Parajeles','123');
+		('Ana', 'Rosales', 'Flores',20,'Flores','1234'),
+		('Juliana', 'Campos', 'Parajeles',20,'JCP','123');
 
-
+		select * from Confederacion
 INSERT INTO Confederacion(nombreConfederacion)
 	VALUES
 		('CAF'),
@@ -146,40 +152,24 @@ INSERT INTO Equipo(nombre,puntos,bandera,activado,idConfederacion)
 
 go
 
-CREATE PROCEDURE createTeam(									
+
+CREATE PROCEDURE insertUser(									
 	@nombreP VARCHAR(100),
-	@puntos int,									
-	@banderaP VARCHAR(100),
-	@activado BIT,
-	@idConfederacion INT
+	@apellido1P VARCHAR(100),									
+	@apellido2P VARCHAR(100),
+	@edadP INT,
+	@nombreUsuarioP	VARCHAR(200),
+	@contrasennaP VARCHAR(100)
 )
 as
 BEGIN
-	INSERT INTO	Equipo(nombreEquipo,puntos,bandera,activado,idConfederacion)values(@nombreP,@puntos,@banderaP,@activado,@idConfederacion);
+	INSERT INTO Usuario(nombre,apellidO1,apellido2,edad,nombreUsuario,contrasenna)
+		values(@nombreP,@apellido1P,@apellido2P,@edadP,@nombreUsuarioP,@contrasennaP);
 END;
+
+EXEC insertUser 'Sara','Torres','Salas',12,'Sara','Sara'
 
 GO
-
-CREATE PROCEDURE updateTeam(									
-	@nombreP VARCHAR(100),
-	@puntos int,									
-	@banderaP VARCHAR(100),
-	@activado BIT,
-	@idConfederacion INT
-)
-as
-BEGIN
-	UPDATE Equipo
-	SET 
-		puntos= @puntos,
-		bandera= @banderaP,
-		activado= @activado,
-		idConfederacion= @idConfederacion
-
-	WHERE nombreEquipo = @nombreP
-END;
-
-go
 
 CREATE PROCEDURE changeEnableAttributeTeam(									
 	@nombreEquipoP VARCHAR(100)
@@ -205,5 +195,60 @@ END;
 exec changeEnableAttributeTeam 'Alemania'
 
 
-select * from Equipo
+select * from Usuario
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE PROCEDURE createTeam(									
+	@nombreP VARCHAR(100),
+	@puntos int,									
+	@banderaP VARCHAR(100),
+	@activado BIT,
+	@idConfederacion INT
+)
+as
+BEGIN
+	INSERT INTO	Equipo(nombreEquipo,puntos,bandera,activado,idConfederacion)values(@nombreP,@puntos,@banderaP,@activado,@idConfederacion);
+END;
+
+GO
+
+
+CREATE PROCEDURE updateTeam(									
+	@nombreP VARCHAR(100),
+	@puntos int,									
+	@banderaP VARCHAR(100),
+	@activado BIT,
+	@idConfederacion INT
+)
+as
+BEGIN
+	UPDATE Equipo
+	SET 
+		puntos= @puntos,
+		bandera= @banderaP,
+		activado= @activado,
+		idConfederacion= @idConfederacion
+
+	WHERE nombreEquipo = @nombreP
+END;
