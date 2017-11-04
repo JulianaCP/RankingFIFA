@@ -85,7 +85,7 @@
                             </div>     
                             <div class="row">
                                 <button onclick="play()" class="waves-effect waves-light btn input-field widthButtonInput" id="button">Jugar</button>  
-                                <a href="/saveGamesShow" style="display: none;" class="waves-effect waves-light btn input-field widthButtonInput" id="buttonNext">Siguiente</a>       
+                                <a href="/saveGamesShow" onclick="next()" style="display: none;" class="waves-effect waves-light btn input-field widthButtonInput" id="buttonNext">Siguiente</a>       
                             </div>
                         </div>
                     </div>
@@ -103,6 +103,12 @@
     ];
     var listTeams= [
         ];
+
+    function next(){        
+        alert(winners.length);
+        var list1 = JSON.stringify(winners);        
+        localStorage.setItem("listTeams",list1);                 
+    }
 
     function getGlobalList(){        
         winners= JSON.parse(localStorage.listTeams);                
