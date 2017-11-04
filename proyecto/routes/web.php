@@ -1,6 +1,11 @@
 <?php
 
 
+//save games
+Route::post('/saveGamesUser', 'saveGames@saveGame');
+Route::get('/saveGamesShow', 'saveGames@showInfo');
+
+
 //repechage
 Route::get('/repechage', 'repechageController@goToworldCup');
 Route::get('/playRepechage', 'repechageController@playRepechageGame');
