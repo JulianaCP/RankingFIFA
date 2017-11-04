@@ -15,7 +15,7 @@ class teamController extends Controller
             $envioDatosEquipo = ['listaEquipos' => $listaEquipos];
             return View('ranking', $envioDatosEquipo);
         } catch(\Illuminate\Database\QueryException $ex){
-            return $e;
+            return $ex;
         }
     }
     //ENABLE
@@ -48,7 +48,7 @@ class teamController extends Controller
             \DB::insert("INSERT INTO Equipo(nombreEquipo,puntos,bandera,activado,idConfederacion) VALUES ('".$name."','".$point."','".$flag."','".$active."','".$idConfederation."')");                                
             return redirect('/ranking'); 
         } catch(\Illuminate\Database\QueryException $ex){
-            return $e;
+            return $ex;
         }
     }
 
@@ -62,7 +62,7 @@ class teamController extends Controller
             $envioDatoslistConfederations = ['listConfederations' => $listConfederations];
             return view("updateTeam",$envioDatosEquipo,$envioDatoslistConfederations);
         } catch(\Illuminate\Database\QueryException $ex){
-            return $e;
+            return $ex;
         }
     }
     public function updateTeamDone(){
@@ -75,7 +75,7 @@ class teamController extends Controller
             \DB::insert("UPDATE Equipo SET puntos= '".$point."',bandera= '".$flag."', idConfederacion= '".$idConfederation."' WHERE nombreEquipo = '".$name."'");
             return redirect('/ranking'); 
         } catch(\Illuminate\Database\QueryException $ex){
-            return $e;
+            return $ex;
         }
     }
 }
