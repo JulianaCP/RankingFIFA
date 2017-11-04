@@ -25,7 +25,7 @@ class userController extends Controller
                         
                     return redirect('/ranking'); 
                 } catch(\Illuminate\Database\QueryException $ex){
-                    return $e;
+                    return $ex;
                 }
             }
         }

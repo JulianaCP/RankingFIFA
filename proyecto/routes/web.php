@@ -39,3 +39,8 @@ Route::get('/register', function () {
 });
 Route::post('/register/done',  'userController@userRegister');
 
+
+//select group
+Route::get('/classify-team', function () {
+    return view('classifyTeam');
+});
