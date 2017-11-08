@@ -3,7 +3,8 @@ var list_Bombo_2 = [];
 var list_Bombo_3 = [];
 var list_Bombo_4 = [];
 
-var listaSeleccionados = [
+
+/*
     {'nombreEquipo':'equipo_1_prueba','puntos':0,'bandera':'../img/imagenes_ranking/4_Argentina.png'},
     {'nombreEquipo':'equipo_2','puntos':400,'bandera':'../img/imagenes_ranking/25_Suecia.png'},
     {'nombreEquipo':'equipo_3','puntos':100,'bandera':'../img/imagenes_ranking/40_Bosnia_Herzegovina.png'},
@@ -35,7 +36,11 @@ var listaSeleccionados = [
     {'nombreEquipo':'equipo_29','puntos':1200,'bandera':'../img/imagenes_ranking/50_Bolivia.png'},
     {'nombreEquipo':'equipo_30','puntos':110,'bandera':'../img/imagenes_ranking/48_Marruecos.png'},
     {'nombreEquipo':'equipo_31','puntos':555,'bandera':'../img/imagenes_ranking/36_Paraguay.png'}
-]; //se debe borrar; ES LA LISTA DE LOS 32 PAISES
+
+
+*/
+
+var listaSeleccionados = []; //se debe borrar; ES LA LISTA DE LOS 32 PAISES
 var organizerTeam = {'nombreEquipo':'prueba','puntos':5000,'bandera':'../img/imagenes_ranking/40_Bosnia_Herzegovina.png'}; //se debe borrar, es el equipo organizador
 
 var list_position_Bombo_1 = []; 
@@ -62,6 +67,8 @@ var randomTeam;
 
 function listOrder(){
    
+    organizerTeam = JSON.parse(localStorage.organizador);
+    listaSeleccionados = JSON.parse(localStorage.lisTeams);
     listaSeleccionados.sort(function(a, b) {
         return parseFloat(a.puntos) - parseFloat(b.puntos);
     });
@@ -277,5 +284,7 @@ function dialog(){
 function verficateEnd(){
     if(list_Bombo_4.length==0){
         $('#ButtonSaveChart').css("display",'block');
+        var lista = JSON.stringify(listFinalChart);
+        localStorage.setItem("listFinalChart",lista);
     }
 }

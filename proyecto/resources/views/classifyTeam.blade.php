@@ -30,14 +30,14 @@
         <a href="/ranking" class="brand-logo nav_logo">FIFA</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="/ranking">Ranking</a></li>
-            <!--FALTA LINEA-->
+            <li><?php session_start(); echo $_SESSION['fullName'] ?></li>
             <li><a href="">Cerrar Sesión</a></li>
         </ul>
         </div>
     </nav>
     <div id="ButtonSaveChart" style="display: none">
         <br>
-        <a href="/createTeam" class="waves-effect waves-light btn positionButtonRight">Guardar Resultados</a>
+        <a href="/saveNewGameView" class="waves-effect waves-light btn positionButtonRight">Guardar Resultados</a>
 
     </div>
 
@@ -172,8 +172,6 @@
                 </div>
             </div>
         </div>
-
-    
     <script>
         listOrder();
     </script>
