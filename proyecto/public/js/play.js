@@ -8,8 +8,7 @@
     var listTeams= [
         ];
 
-    function next(){        
-        alert(winners.length);
+    function next(){                
         var list1 = JSON.stringify(winners);        
         localStorage.setItem("listTeams",list1);                 
     }
