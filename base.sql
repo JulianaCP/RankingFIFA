@@ -24,6 +24,9 @@ Si un equipo fue inhabilitado del sistema, siempre se deberá mostrar en los
   equipo está deshabilitado, por ejemplo algún icono o marca de agua. 
 */
 
+
+
+
 SELECT sorteoGuardado.posicion,Equipo.nombreEquipo,Equipo.bandera FROM sorteoGuardado inner join Equipo on(sorteoGuardado.nombreSorteo= 'copa mundial z' and Equipo.nombreEquipo= sorteoGuardado.nombreEquipo)
 insert into sorteoGuardado (nombreSorteo,posicion,nombreEquipo)
 values

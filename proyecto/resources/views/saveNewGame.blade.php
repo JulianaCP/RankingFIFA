@@ -53,9 +53,13 @@
     <script type="text/javascript">        
         function getList(){
             list1= JSON.parse(localStorage.listFinalChart);      
-            document.getElementById("list").value= list1;
+            var list2 = JSON.stringify(list1);
+            document.getElementById("list").value= list2;
+            
         }
         getList();
+
+
     </script>
     <footer class="page-footer footer_color">
         <div style="text-align:center;">

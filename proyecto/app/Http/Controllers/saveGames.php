@@ -24,7 +24,7 @@ class saveGames extends Controller
             \DB::insert("INSERT INTO guardarEquipoUsuario(nombreSorteo,nombreUsuario,logo,fecha) VALUES ('".$name."','".$user."','".$flag."','".$today."')"); 
             foreach ($manage as $manageP) {                
                 try{
-                    \DB::insert("INSERT INTO sorteoGuardado(nombreSorteo,posicion,nombreEquipo) VALUES ('".$name."','".$manageP->posicion."','".$manageP->nombreEquipo."')");
+                    \DB::insert("INSERT INTO sorteoGuardado(nombreSorteo,posicion,nombreEquipo) VALUES ('".$name."','".$manageP->position."','".$manageP->name."')");
                     
                 } catch(\Illuminate\Database\QueryException $ex){
                     return $ex;

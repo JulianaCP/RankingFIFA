@@ -1,4 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+.classTablita{
+    margin-left: 20%;
+    margin-right: 20%;
+} 
+
+.thBoard{
+    background-color: #0B614B;
+    color: white;
+}
+
+.tdBoard{
+    width: 25%;
+}
+
+.imgBoard{
+    width: 50px;
+    height: 30px;
+}
 .nav_color{
     background-color: #004d40;
 }

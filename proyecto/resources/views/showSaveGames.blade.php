@@ -10,21 +10,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Sorteo</title>
 </head>
-<style type="text/css">
-    .classTablita{
-        margin-left: 20%;
-        margin-right: 20%;
-    } 
-
-    th{
-        background-color: #0B614B;
-        color: white;
-    }
-
-    td{
-        width: 25%;
-    }
-</style>
 <body>
     <nav class="nav_color">
         <div class="nav-wrapper">
@@ -46,37 +31,37 @@
                     <table>
                         <thead>
                         <tr>
-                            <th>A</th>
-                            <th>B</th>
-                            <th>C</th>
-                            <th>D</th>
+                            <th class="thBoard">A</th>
+                            <th class="thBoard">B</th>
+                            <th class="thBoard">C</th>
+                            <th class="thBoard">D</th>
                         </tr>
                         </thead>
 
                         <tbody>
                             <tr>
-                                <td id="1_A"></td>
-                                <td id="1_B"></td>
-                                <td id="1_C"></td>
-                                <td id="1_D"></td>
+                                <td class="tdBoard" id="1_A"></td>
+                                <td class="tdBoard" id="1_B"></td>
+                                <td class="tdBoard" id="1_C"></td>
+                                <td class="tdBoard" id="1_D"></td>
                             </tr>
                             <tr>
-                                <td id="2_A"></td>
-                                <td id="2_B"></td>
-                                <td id="2_C"></td>
-                                <td id="2_D"></td>
+                                <td class="tdBoard" id="2_A"></td>
+                                <td class="tdBoard" id="2_B"></td>
+                                <td class="tdBoard" id="2_C"></td>
+                                <td class="tdBoard" id="2_D"></td>
                             </tr>
                             <tr>
-                                <td id="3_A"></td>
-                                <td id="3_B"></td>
-                                <td id="3_C"></td>
-                                <td id="3_D"></td>
+                                <td class="tdBoard" id="3_A"></td>
+                                <td class="tdBoard" id="3_B"></td>
+                                <td class="tdBoard" id="3_C"></td>
+                                <td class="tdBoard" id="3_D"></td>
                             </tr>
                             <tr>
-                                <td id="4_A"></td>
-                                <td id="4_B"></td>
-                                <td id="4_C"></td>
-                                <td id="4_D"></td>
+                                <td class="tdBoard" id="4_A"></td>
+                                <td class="tdBoard" id="4_B"></td>
+                                <td class="tdBoard" id="4_C"></td>
+                                <td class="tdBoard" id="4_D"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -84,41 +69,40 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>E</th>
-                                <th>F</th>
-                                <th>G</th>
-                                <th>H</th>
+                                <th class="thBoard">E</th>
+                                <th class="thBoard">F</th>
+                                <th class="thBoard">G</th>
+                                <th class="thBoard">H</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr>
-                                <td id="1_E"></td>
-                                <td id="1_F"></td>
-                                <td id="1_G"></td>
-                                <td id="1_H"></td>
+                                <td class="tdBoard" id="1_E"></td>
+                                <td class="tdBoard" id="1_F"></td>
+                                <td class="tdBoard" id="1_G"></td>
+                                <td class="tdBoard" id="1_H"></td>
                             </tr>
                             <tr>
-                                <td id="2_E"></td>
-                                <td id="2_F"></td>
-                                <td id="2_G"></td>
-                                <td id="2_H"></td>
+                                <td class="tdBoard" id="2_E"></td>
+                                <td class="tdBoard" id="2_F"></td>
+                                <td class="tdBoard" id="2_G"></td>
+                                <td class="tdBoard" id="2_H"></td>
                             </tr>
                             <tr>
-                                <td id="3_E"></td>
-                                <td id="3_F"></td>
-                                <td id="3_G"></td>
-                                <td id="3_H"></td>
+                                <td class="tdBoard" id="3_E"></td>
+                                <td class="tdBoard" id="3_F"></td>
+                                <td class="tdBoard" id="3_G"></td>
+                                <td class="tdBoard" id="3_H"></td>
                             </tr>
                             <tr>
-                                <td id="4_E"></td>
-                                <td id="4_F"></td>
-                                <td id="4_G"></td>
-                                <td id="4_H"></td>
+                                <td class="tdBoard" id="4_E"></td>
+                                <td class="tdBoard" id="4_F"></td>
+                                <td class="tdBoard" id="4_G"></td>
+                                <td class="tdBoard" id="4_H"></td>
                             </tr>
                         </tbody>
                     </table>
-
                 </div>
             </div>  
         </div>
@@ -130,7 +114,7 @@
             var isIn= document.getElementById(arrayJS[i].posicion);
             
             if(isIn != null){
-                 var code="<div class='table_imagen'><img src='"+arrayJS[i].bandera+"'></div>"+
+                 var code="<div class='table_imagen'><img class='imgBoard' src='"+arrayJS[i].bandera+"'></div>"+
                     "<div class='table_centrar_texto'>"+arrayJS[i].nombreEquipo+"</div>";
                     if (arrayJS[i].activado== "1") {
                        code= code+ "<div class='table_centrar_texto'>Activado</div>";
