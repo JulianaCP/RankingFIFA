@@ -86,7 +86,7 @@
                             </div>     
                             <div class="row">
                                 <button onclick="play()" class="waves-effect waves-light btn input-field widthButtonInput" id="button">Jugar</button>  
-                                <a href="/saveGames" onclick="next()" style="display: none;" class="waves-effect waves-light btn input-field widthButtonInput" id="buttonNext">Siguiente</a>       
+                                <a href="/classify-team" onclick="next()" style="display: none;" class="waves-effect waves-light btn input-field widthButtonInput" id="buttonNext">Siguiente</a>       
                             </div>
                         </div>
                     </div>
