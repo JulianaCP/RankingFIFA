@@ -106,3 +106,8 @@ th, td {
     float: left;
     padding-left: 5px;
 }
+
+#dialogImgTeam{
+	width: 90px;
+	height: 70px;
+}

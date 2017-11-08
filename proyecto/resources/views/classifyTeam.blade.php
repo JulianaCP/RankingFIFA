@@ -135,9 +135,9 @@
         <img src="../img/copa.png" id="dialogImg"><br>
         <div style="text-align:center">
             
-            <h4 id="dialogNameTeam">Alemania</h4>
-            <img src="../img/imagenes_ranking/1_Alemania.png" alt="" id="dialogImgTeam"><br><br>
-            <h4 id="dialogPosition">1_A</h4>
+            <h4 id="dialogNameTeam"></h4>
+            <img src="" alt="" id="dialogImgTeam"><br><br>
+            <h4 id="dialogPosition"></h4>
             <h5 id="dialogTitleFIFA">FIFA</h5>
         </div>
 

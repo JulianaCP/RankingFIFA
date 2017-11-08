@@ -69,7 +69,7 @@ function listOrder(){
    
     organizerTeam = JSON.parse(localStorage.organizador);
     console.log(organizerTeam);
-    listaSeleccionados = JSON.parse(localStorage.lisTeams);
+    listaSeleccionados = JSON.parse(localStorage.listTeams);
     console.log(listaSeleccionados);
     listaSeleccionados.sort(function(a, b) {
         return parseFloat(a.puntos) - parseFloat(b.puntos);
