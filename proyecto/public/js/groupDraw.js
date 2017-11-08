@@ -66,6 +66,7 @@ var randomTeam;
 
 
 function listOrder(){
+    //this functin is in charge of filling all the necessary lists to make the draw
    
     organizerTeam = JSON.parse(localStorage.organizador);
     console.log(organizerTeam);
@@ -85,18 +86,21 @@ function listOrder(){
     resetVariables();
 }
 function obtainListPosition(){
+    //reset the list of positions
     list_position_Bombo_1 = ['1_A','1_B','1_C','1_D','1_E','1_F','1_G','1_H'];
     list_position_Bombo_2 = ['2_A','2_B','2_C','2_D','2_E','2_F','2_G','2_H'];
     list_position_Bombo_3 = ['3_A','3_B','3_C','3_D','3_E','3_F','3_G','3_H'];
     list_position_Bombo_4 = ['4_A','4_B','4_C','4_D','4_E','4_F','4_G','4_H'];
 }
 function resetVariables(){
+    //reset the variables
     contTeamsInBombo = 8;
     activeBombo = 1;
     listFinalChart = [];
 }
 
 function obtainList(bombo){
+    //pulls the first items from the list
     if(bombo == '1'){
         list_Bombo_1 = listaSeleccionados.slice(0, 8);
     }
@@ -115,6 +119,7 @@ function obtainList(bombo){
 
 
 function movementBombo(){
+    //add the class to perform the image turn
     if(contTeamsInBombo == 0){
         contTeamsInBombo = 8;
         activeBombo = activeBombo + 1;
@@ -153,14 +158,11 @@ function movementBombo(){
             });
         }
         changeImages();
-    }
-    else{
-        //habilitar boton guardar
-    }
-
-    
+    }   
 }
 function changeImages(){
+
+    // Is responsible for making the movement of the bass drum
 
     contTeamsInBombo = contTeamsInBombo - 1;
 
@@ -185,6 +187,7 @@ function changeImages(){
 
 function addTeamChart(){
     
+    //responsible for adding the equipment to the selected box
     if(activeBombo == 1){
         if(contTeamsInBombo + 1 == 8){
             //position
@@ -244,13 +247,14 @@ function addTeamChart(){
 }
 
 function fillChart(){
-
+    //add a child to the td element in the table
     $('#' + randomPositionTeam).append( "<img class='imageTable' src='"+randomTeam.bandera+"' alt=''>" );
     $('#' + randomPositionTeam).append("<p class='textTable'>"+randomTeam.nombreEquipo+"</p>");
     changeDialogValues();
 
 }
 function changeDialogValues(){
+    //add the selected item to the information sampling box
     $('#dialogNameTeam').text(randomTeam.nombreEquipo);
     $('#dialogPosition').text(randomPositionTeam);
     $('#dialogImgTeam').attr('src',randomTeam.bandera);
@@ -259,6 +263,7 @@ function changeDialogValues(){
 }
 
 function dialog(){
+    //is responsible for opening the information box
     $( "#dialog" ).dialog({
         modal: true,
         autoOpen: false,
@@ -273,6 +278,7 @@ function dialog(){
     
 }
 function verficateEnd(){
+    //save the final list of selected in the local storage
     if(list_Bombo_4.length==0){
         $('#ButtonSaveChart').css("display",'block');
         var lista = JSON.stringify(listFinalChart);
