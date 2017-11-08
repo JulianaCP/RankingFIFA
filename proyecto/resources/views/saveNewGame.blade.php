@@ -50,14 +50,9 @@
             </div>
         </div>
     </form>   
-    <script type="text/javascript">
-        var lista= [{posicion:'1_A',nombreEquipo:'Alemania'},
-                    {posicion:'2_A',nombreEquipo:'Canadá'},
-                    {posicion:'3_A',nombreEquipo:'Brasil'},
-                    {posicion:'4_A',nombreEquipo:'Bélgica'}];
-
+    <script type="text/javascript">        
         function getList(){
-            var list1 = JSON.stringify(lista);              
+            list1= JSON.parse(localStorage.listFinalChart);      
             document.getElementById("list").value= list1;
         }
         getList();
