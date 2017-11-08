@@ -68,12 +68,15 @@ var randomTeam;
 function listOrder(){
    
     organizerTeam = JSON.parse(localStorage.organizador);
+    console.log(organizerTeam);
     listaSeleccionados = JSON.parse(localStorage.lisTeams);
+    console.log(listaSeleccionados);
     listaSeleccionados.sort(function(a, b) {
         return parseFloat(a.puntos) - parseFloat(b.puntos);
     });
     listaSeleccionados.reverse();
     listaSeleccionados.splice(0, 0, organizerTeam);
+    console.log(listaSeleccionados);
     obtainList('1');
     obtainList('2');
     obtainList('3');

@@ -33,13 +33,13 @@
                     <div class="centrarInput">
                         <div class="row">
                             <div class="input-field ">
-                                <input placeholder="Placeholder" name="nombreEquipo" id="nombreEquipo" type="text">
+                                <input placeholder="Nombre" name="nombreEquipo" id="nombreEquipo" type="text">
                             </div>
                         </div>
                     
                         <div class="row">
                             <div class="input-field" >
-                                <input placeholder="Placeholder" name="pointsTeam" id="pointsTeam" type="number">
+                                <input placeholder="Puntos" name="pointsTeam" id="pointsTeam" type="number">
                             </div>
                         </div>
 
