@@ -37,17 +37,13 @@
             <div class="card-content">            
                 <h3 class="centrar_texto"><strong>Seleccionar 38 equipos</strong><p id="number">0</p></h3>                
                 <select onchange="changeTable()" id="categorieInsU" name="categorieInsU" class="select_correction input-field">
-                    <?php
-                        $contador = 1;
-                        $confederacyInitial= $listConfederations[0]->id;
-                    ?>    
-                    @foreach($listConfederations as $confederacy)
-                        <option value="<?php echo $contador ?>">{{$confederacy->nombreConfederacion}}</option>
-
-                        <?php
-                            $contador = $contador + 1;
-                        ?>
-                    @endforeach          
+                    <option value="1">CAF</option>
+                    <option value="2">CONCACAF</option>
+                    <option value="3">CONMEBOL</option>
+                    <option value="4">OFC</option>         
+                    <option value="5">AFC</option>
+                    <option value="6">UEFA</option>
+                    <option value="7">Organizador</option>         
                 </select>
                 <br>
                 <div class="table">

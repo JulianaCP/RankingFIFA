@@ -12,6 +12,128 @@ CREATE TABLE Confederacion(
 );
 
 
+/*
+Los usuarios podrán guardar los sorteos, de manera que en un futuro 
+podrán consultarlos y ver los resultados que obtuvieron en su momento 
+(toda la fase de grupos), los usuarios podrán ver todos los sorteos guardados, 
+no importa si éstos son de otros usuarios, los sorteos deberán tener un logo, nombre,
+ nombre del usuario que los generó y la fecha de creación. 
+
+Si un equipo fue inhabilitado del sistema, siempre se deberá mostrar en los
+ resultados del sorteo, pero se deberá proveer un mecanismo para indicar que tal
+  equipo está deshabilitado, por ejemplo algún icono o marca de agua. 
+*/
+
+SELECT sorteoGuardado.posicion,Equipo.nombreEquipo,Equipo.bandera FROM sorteoGuardado inner join Equipo on(sorteoGuardado.nombreSorteo= 'copa mundial z' and Equipo.nombreEquipo= sorteoGuardado.nombreEquipo)
+insert into sorteoGuardado (nombreSorteo,posicion,nombreEquipo)
+values
+('copa mundial z','1_A','Alemania'),
+('copa mundial z','2_A','Canadá'),
+('copa mundial z','3_A','Brasil'),
+('copa mundial z','4_A','Bélgica'),
+
+('copa mundial z','1_B','República de Irlanda'),
+('copa mundial z','2_B','EEUU'),
+('copa mundial z','3_B','Bulgaria'),
+('copa mundial z','4_B','Austria'),
+
+('copa mundial z','1_C','Rumanía'),
+('copa mundial z','2_C','Japón'),
+('copa mundial z','3_C','Camerún'),
+('copa mundial z','4_C','Australia'),
+
+('copa mundial z','1_D','Italia'),
+('copa mundial z','2_D','Inglaterra'),
+('copa mundial z','3_D','Peru'),
+('copa mundial z','4_D','Suiza'),
+
+('copa mundial z','1_E','Argentina'),
+('copa mundial z','2_E','Portugal'),
+('copa mundial z','3_E','Costa Rica'),
+('copa mundial z','4_E','Ucrania'),
+
+('copa mundial z','1_F','España'),
+('copa mundial z','2_F','Francia'),
+('copa mundial z','3_F','Tunez'),
+('copa mundial z','4_F','Polonia'),
+
+('copa mundial z','1_G','Qatar'),
+('copa mundial z','2_G','Sierra Leona'),
+('copa mundial z','3_G','Chile'),
+('copa mundial z','4_G','México'),
+
+('copa mundial z','1_H','Uruguay'),
+('copa mundial z','2_H','Croacia'),
+('copa mundial z','3_H','Países Bajos'),
+('copa mundial z','4_H','Rusia'),
+
+('copa mundial 2015','1_A','Alemania'),
+('copa mundial 2015','2_A','Canadá'),
+('copa mundial 2015','3_A','Brasil'),
+('copa mundial 2015','4_A','Bélgica'),
+
+('copa mundial 2015','1_B','República de Irlanda'),
+('copa mundial 2015','2_B','EEUU'),
+('copa mundial 2015','3_B','Bulgaria'),
+('copa mundial 2015','4_B','Austria'),
+
+('copa mundial 2015','1_C','Rumanía'),
+('copa mundial 2015','2_C','Japón'),
+('copa mundial 2015','3_C','Camerún'),
+('copa mundial 2015','4_C','Australia'),
+
+('copa mundial 2015','1_D','Italia'),
+('copa mundial 2015','2_D','Inglaterra'),
+('copa mundial 2015','3_D','Peru'),
+('copa mundial 2015','4_D','Suiza'),
+
+('copa mundial 2015','1_E','Argentina'),
+('copa mundial 2015','2_E','Portugal'),
+('copa mundial 2015','3_E','Costa Rica'),
+('copa mundial 2015','4_E','Ucrania'),
+
+('copa mundial 2015','1_F','España'),
+('copa mundial 2015','2_F','Francia'),
+('copa mundial 2015','3_F','Tunez'),
+('copa mundial 2015','4_F','Polonia'),
+
+('copa mundial 2015','1_G','Qatar'),
+('copa mundial 2015','2_G','Sierra Leona'),
+('copa mundial 2015','3_G','Chile'),
+('copa mundial 2015','4_G','México'),
+
+('copa mundial 2015','1_H','Uruguay'),
+('copa mundial 2015','2_H','Croacia'),
+('copa mundial 2015','3_H','Países Bajos'),
+('copa mundial 2015','4_H','Rusia');
+
+insert into guardarEquipoUsuario(nombreSorteo,nombreUsuario,logo,fecha)
+values('copa mundial z', 'Ana Rosa Flores', 'img/imagenes_ranking/1_Alemania.png',
+'4-11-2013'),('copa mundial 2015', 'Ana Rosa Flores', 'img/imagenes_ranking/10_Peru.png',
+'4-11-2015');
+
+
+
+create table sorteoGuardado(
+	id INT IDENTITY PRIMARY KEY,
+	nombreSorteo VARCHAR(100),
+	posicion VARCHAR(50),
+	nombreEquipo VARCHAR(100)
+);
+
+
+
+select * from guardarEquipoUsuario
+
+update guardarEquipoUsuario set nombreSorteo= 'copa mundial 2015' where nombreSorteo= 'Alemania'
+
+CREATE TABLE guardarEquipoUsuario(
+	nombreSorteo VARCHAR(100) PRIMARY KEY,
+	nombreUsuario	VARCHAR(100),
+	logo VARCHAR(200), 
+	fecha varchar(50),	
+);
+
 
 CREATE TABLE Equipo(
 	nombreEquipo VARCHAR(100) PRIMARY KEY,
@@ -21,6 +143,7 @@ CREATE TABLE Equipo(
 	idConfederacion INT NOT NULL,
 	CONSTRAINT FK_idConfederacion_Equipo FOREIGN KEY(idConfederacion) REFERENCES Confederacion ON DELETE CASCADE ON UPDATE CASCADE	
 );
+
 
 CREATE TABLE Usuario(
 	nombreUsuario	VARCHAR(100) PRIMARY KEY,

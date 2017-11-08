@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 class teamController extends Controller
 {
-
     //READ
     public function index()
     {
