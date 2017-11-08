@@ -246,7 +246,9 @@ function addTeamChart(){
 }
 
 function fillChart(){
-    $('#' + randomPositionTeam).html(randomTeam.nombreEquipo);
+
+    $('#' + randomPositionTeam).append( "<img class='imageTable' src='"+randomTeam.bandera+"' alt=''>" );
+    $('#' + randomPositionTeam).append("<p class='textTable'>"+randomTeam.nombreEquipo+"</p>");
     changeDialogValues();
 
 }
@@ -255,6 +257,7 @@ function changeDialogValues(){
     $('#dialogPosition').text(randomPositionTeam);
     $('#dialogImgTeam').attr('src',randomTeam.bandera);
     dialog();
+    verficateEnd();
 }
 
 function dialog(){
@@ -270,4 +273,9 @@ function dialog(){
         $('#dialog').dialog('open');
       }, 1000);
     
+}
+function verficateEnd(){
+    if(list_Bombo_4.length==0){
+        $('#ButtonSaveChart').css("display",'block');
+    }
 }

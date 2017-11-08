@@ -89,3 +89,20 @@ th, td {
     bottom:5px;
     right:10px;
 }
+
+
+.positionButtonRight{
+    float: right;
+}
+
+.imageTable{
+    margin: auto;
+	float: left;
+	width: 50px;
+    height: 30px;
+}
+.textTable{
+    margin-top: 2%;
+    float: left;
+    padding-left: 5px;
+}

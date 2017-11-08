@@ -35,6 +35,11 @@
         </ul>
         </div>
     </nav>
+    <div id="ButtonSaveChart" style="display: none">
+        <br>
+        <a href="/createTeam" class="waves-effect waves-light btn positionButtonRight">Guardar Resultados</a>
+
+    </div>
 
 
     <div class="row card_center_bombo_page">
@@ -54,6 +59,7 @@
 
                         <tbody>
                             <tr>
+                                
                                 <td id="1_A"></td>
                                 <td id="1_B"></td>
                                 <td id="1_C"></td>
