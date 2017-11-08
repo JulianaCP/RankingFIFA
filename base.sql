@@ -113,16 +113,6 @@ values('copa mundial z', 'Ana Rosa Flores', 'img/imagenes_ranking/1_Alemania.png
 '4-11-2015');
 
 
-
-create table sorteoGuardado(
-	id INT IDENTITY PRIMARY KEY,
-	nombreSorteo VARCHAR(100),
-	posicion VARCHAR(50),
-	nombreEquipo VARCHAR(100)
-);
-
-
-
 select * from guardarEquipoUsuario
 
 update guardarEquipoUsuario set nombreSorteo= 'copa mundial 2015' where nombreSorteo= 'Alemania'
@@ -169,7 +159,7 @@ INSERT INTO Confederacion(nombreConfederacion,cupos)
 		('Organizador',1);
 
 INSERT INTO Equipo(nombreEquipo,puntos,bandera,activado,idConfederacion)
-	VALUES
+	VALUES		
 		('Alemania',1631,'img/imagenes_ranking/1_Alemania.png',1,6),
 		('Brasil',1619,'img/imagenes_ranking/2_Brasil.png',1,3),
 		('Portugal',1446,'img/imagenes_ranking/3_Portugal.png',1,6),
@@ -269,7 +259,9 @@ INSERT INTO Equipo(nombreEquipo,puntos,bandera,activado,idConfederacion)
 		('El Salvador',1631,'img/imagenes_ranking/97_El_Salvador.png',1,2),
 		('Qatar',1631,'img/imagenes_ranking/98_Qatar.png',1,5),
 		('Sierra Leona',1631,'img/imagenes_ranking/99_Sierra_Leona.png',1,1),
-		('Líbano',1631,'img/imagenes_ranking/100_Libano.png',1,5);
+		('Líbano',1631,'img/imagenes_ranking/100_Libano.png',1,5),
+		('Samoa',567, 'img/imagenes_ranking/101_Samoa.png',1,4),
+		('Tonga',667, 'img/imagenes_ranking/102_Tonga.png',1,4);
 
 go
 
@@ -338,6 +330,13 @@ BEGIN
 			UPDATE EQUIPO SET activado = 1 WHERE nombreEquipo = @nombreEquipoP;
 		END
 END;
+
+create table sorteoGuardado(
+	id INT IDENTITY PRIMARY KEY,
+	nombreSorteo VARCHAR(100),
+	posicion VARCHAR(50),
+	nombreEquipo VARCHAR(100)
+);
 
 
 exec changeEnableAttributeTeam 'Alemania'

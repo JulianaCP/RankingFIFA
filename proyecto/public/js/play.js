@@ -14,7 +14,7 @@
         localStorage.setItem("listTeams",list1);                 
     }
 
-    function getGlobalList(){        
+    function getGlobalList(){                
         winners= JSON.parse(localStorage.listTeams);                
         listGlobalRep= JSON.parse(localStorage.listRepechege);        
         for(var i= 0; i < listGlobalRep.length; i++){
@@ -70,7 +70,7 @@
                 document.getElementsByClassName("tdClassUEFA")[i+1].innerHTML= "GOLES: "+$player2.toString()+"<br>"+
                     "<strong style= 'color: red;'>PERDEDOR</strong>";
 
-                winners.push($player1);
+                winners.push(provisionalListUEFA[i]);
             }
             else if ($player1> $player2) {
                 document.getElementsByClassName("tdClassUEFA")[i].innerHTML= "GOLES: "+$player1.toString()+"<br>"+
@@ -78,7 +78,7 @@
 
                 document.getElementsByClassName("tdClassUEFA")[i+1].innerHTML= "GOLES: "+$player2.toString()+"<br>"+
                     "<strong style= 'color: red;'>PERDEDOR</strong>";
-                winners.push($player2);
+                winners.push(provisionalListUEFA[i]);
             }
             else{
                 document.getElementsByClassName("tdClassUEFA")[i].innerHTML=  "GOLES: "+$player1.toString()+"<br>"+
@@ -86,7 +86,7 @@
 
                 document.getElementsByClassName("tdClassUEFA")[i+1].innerHTML= "GOLES: "+$player2.toString()+"<br>"+
                     "<strong style= 'color: green;'>GANADOR</strong>";
-                winners.push($player1);
+                winners.push(provisionalListUEFA[i+1]);
             }   
         }              
     }
@@ -103,8 +103,8 @@
                     "<strong style= 'color: green;'>GANADOR</strong>";
 
                 document.getElementsByClassName("tdClass")[i+1].innerHTML= "GOLES: "+$player2.toString()+"<br>"+
-                    "<strong style= 'color: red;'>PERDEDOR</strong>";
-                winners.push($player1);
+                    "<strong style= 'color: red;'>PERDEDOR</strong>";                
+                winners.push(provisionalList[i]);
             }
             else if ($player1> $player2) {
                 document.getElementsByClassName("tdClass")[i].innerHTML= "GOLES: "+$player1.toString()+"<br>"+
@@ -112,7 +112,7 @@
 
                 document.getElementsByClassName("tdClass")[i+1].innerHTML= "GOLES: "+$player2.toString()+"<br>"+
                     "<strong style= 'color: red;'>PERDEDOR</strong>";
-                winners.push($player2);
+                winners.push(provisionalList[i]);
             }
             else{
                 document.getElementsByClassName("tdClass")[i].innerHTML=  "GOLES: "+$player1.toString()+"<br>"+
@@ -120,9 +120,10 @@
 
                 document.getElementsByClassName("tdClass")[i+1].innerHTML= "GOLES: "+$player2.toString()+"<br>"+
                     "<strong style= 'color: green;'>GANADOR</strong>";
-                winners.push($player1);
+                winners.push(provisionalList[i+1]);
             }   
-        }              
+        }
+        console.log(winners);
         document.getElementById("button").style.display= "none";
         document.getElementById("buttonNext").style.display= "block";
     }
