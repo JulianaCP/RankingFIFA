@@ -80,10 +80,6 @@ function listOrder(){
     obtainList('4');
     obtainListPosition();
     resetVariables();
-    console.log(list_Bombo_1);
-    console.log(list_Bombo_2);
-    console.log(list_Bombo_3);
-    console.log(list_Bombo_4);
 }
 function obtainListPosition(){
     list_position_Bombo_1 = ['1_A','1_B','1_C','1_D','1_E','1_F','1_G','1_H'];
@@ -188,7 +184,6 @@ function addTeamChart(){
     
     if(activeBombo == 1){
         if(contTeamsInBombo + 1 == 8){
-            console.log("entrooooo");
             //position
             randomPositionTeam = list_position_Bombo_1[0];
             list_position_Bombo_1.splice(0, 1);
@@ -198,7 +193,6 @@ function addTeamChart(){
             list_Bombo_1.splice(0, 1);
         }
         else{
-            console.log("ddd");
             //position
             numRandom = Math.floor(Math.random() * list_position_Bombo_1.length); 
             randomPositionTeam = list_position_Bombo_1[numRandom];
@@ -240,12 +234,6 @@ function addTeamChart(){
         randomTeam = list_Bombo_4[numRandom];
         list_Bombo_4.splice(numRandom, 1);
     }
-
-    console.log(list_Bombo_1);
-    console.log(list_Bombo_2);
-    console.log(list_Bombo_3);
-    console.log(list_Bombo_4);
-
 
     listFinalChart.push({'name': randomTeam.nombreEquipo,'position':randomPositionTeam});
 
