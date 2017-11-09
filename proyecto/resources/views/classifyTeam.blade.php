@@ -95,7 +95,7 @@
                             <tr>
                                 <th>E</th>
                                 <th>F</th>
-                                <th>C</th>
+                                <th>G</th>
                                 <th>H</th>
                             </tr>
                         </thead>
