@@ -138,6 +138,8 @@ CREATE TABLE Equipo(
 );
 
 
+drop table Usuario
+
 CREATE TABLE Usuario(
 	nombre	VARCHAR(100) PRIMARY KEY,
 	apellido1 VARCHAR(100) NOT NULL,
