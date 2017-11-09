@@ -66,9 +66,16 @@ class teamController extends Controller
     }
     public function updateTeamDone(){
         $name= $_POST['teamName'];
+        $bandera = $_POST['teamBandera'];
         $point= $_POST['puntosEquipo'];
         $flag= $_POST['flagInsU'];
-        $flag = '../img/'.$flag;
+        
+        if($flag == ""){
+            $flag = $bandera;
+        }
+        else{
+            $flag = '../img/'.$flag;
+        }
         $idConfederation= $_POST['categorieInsU'];
         try{
             \DB::insert("UPDATE Equipo SET puntos= '".$point."',bandera= '".$flag."', idConfederacion= '".$idConfederation."' WHERE nombreEquipo = '".$name."'");

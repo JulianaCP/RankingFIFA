@@ -28,6 +28,7 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <input type="hidden" name="teamName" id="teamName" value="{{$equipo[0]->nombreEquipo}}">
+        <input type="hidden" name="teamBandera" id="teamBandera" value="{{$equipo[0]->bandera}}">
         
         <input type="hidden" type="number" id="idConfereacionTeam" value="{{$equipo[0]->idConfederacion}}">
         
