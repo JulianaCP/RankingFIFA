@@ -139,16 +139,20 @@ CREATE TABLE Equipo(
 
 
 CREATE TABLE Usuario(
-	nombreUsuario	VARCHAR(100) PRIMARY KEY,
-	nombreCompleto	VARCHAR(200) NOT NULL,
+	nombre	VARCHAR(100) PRIMARY KEY,
+	apellido1 VARCHAR(100) NOT NULL,
+	apellido2 VARCHAR(100) NOT NULL,
+	edad INT NOT NULL,
+	fechaRegistro	DATETIME DEFAULT GETDATE(),
+	nombreUsuario	VARCHAR(200) NOT NULL,
 	contrasenna		VARCHAR(100) NOT NULL
 );
 
-INSERT INTO Usuario(nombreUsuario, nombreCompleto,contrasenna)
-	VALUES
-		('Ana','Ana Rosa Flores','1234'),
-		('JCP','Juliana Campos Parajeles','123');
 
+INSERT INTO Usuario(nombre,apellidO1,apellido2,edad,nombreUsuario,contrasenna)
+	VALUES
+		('Ana', 'Rosales', 'Flores',20,'Flores','1234'),
+		('Juliana', 'Campos', 'Parajeles',20,'JCP','123');
 
 
 INSERT INTO Confederacion(nombreConfederacion,cupos)
