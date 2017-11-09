@@ -339,3 +339,18 @@ BEGIN
 		END
 END;
 
+GO
+
+CREATE PROCEDURE insertUser(									
+	@nombreP VARCHAR(100),
+	@apellido1P VARCHAR(100),									
+	@apellido2P VARCHAR(100),
+	@edadP INT,
+	@nombreUsuarioP	VARCHAR(200),
+	@contrasennaP VARCHAR(100)
+)
+as
+BEGIN
+	INSERT INTO Usuario(nombre,apellidO1,apellido2,edad,nombreUsuario,contrasenna)
+		values(@nombreP,@apellido1P,@apellido2P,@edadP,@nombreUsuarioP,@contrasennaP);
+END;
