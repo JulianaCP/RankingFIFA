@@ -19,7 +19,7 @@
             <li><a href="/saveGames">juegos guardados</a></li>        
             <li><a href="/ranking">Ranking</a></li>
             <li><?php session_start(); echo $_SESSION['fullName'] ?></li>
-            <li><a href="">Cerrar Sesión</a></li>
+            <li><a href="/">Cerrar Sesión</a></li>
         </ul>
         </div>
     </nav>

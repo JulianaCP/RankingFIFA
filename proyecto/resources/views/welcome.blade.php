@@ -26,7 +26,7 @@
 
                         </div>
                         <div class="input-field">
-                            <input id="contrasenna" name="contrasenna" type="text" value="{{$password}}"
+                            <input id="contrasenna" name="contrasenna" type="password" value="{{$password}}"
                             placeholder="Contraseña" class="black_letter">
 
                         </div>
