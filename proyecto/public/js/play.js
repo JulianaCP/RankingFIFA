@@ -8,11 +8,15 @@
     var listTeams= [
         ];
 
+    /*set the infromation of the list in local storage listeams
+    for to of the list of 32 teams*/
     function next(){                
         var list1 = JSON.stringify(winners);        
         localStorage.setItem("listTeams",list1);                 
     }
 
+    /*get the infromation of the list in local storage listeams
+    for to get the list of 26 teams and get the repechage list*/
     function getGlobalList(){                
         winners= JSON.parse(localStorage.listTeams);                
         listGlobalRep= JSON.parse(localStorage.listRepechege);        
@@ -27,6 +31,7 @@
         }
     }
 
+    /*delete data from the list if exist*/
     function findUserToDelete(team){            
         for(var i= 0; i< provisionalList.length; i++){                
             if (provisionalList[i].nombreEquipo == team.nombreEquipo){
@@ -42,6 +47,7 @@
         }
     }
 
+    /*delete data from the list of UEFA if exist*/
     function findUserToDeleteUEFA(team){            
         for(var i= 0; i< provisionalListUEFA.length; i++){
             if (provisionalListUEFA[i].nombreEquipo == team.nombreEquipo){
@@ -57,6 +63,8 @@
         }
     }        
 
+    /*make the random game for chose the winner of the repechage game
+    of UEFA confederation*/
     function playUEFA(){
         for (var i = 0; i<provisionalListUEFA.length; i= i+2) {
             $player1= Math.floor(Math.random() * 11);
@@ -90,6 +98,7 @@
         }              
     }
 
+    /*make the random game for chose the winner of the repechage game*/
     function play(){  
         playP= true;
         playUEFA();
@@ -127,12 +136,14 @@
         document.getElementById("buttonNext").style.display= "block";
     }
 
+    /*add an element to the vs provisional list*/
     function addToVs(element,object){            
         findUserToDelete(object);
         provisionalList.push(object);
         changeTable();
     }
 
+    /*quit an element to the vs provisional list*/
     function quitOfVs(element,object){                        
         if (playP) {
             return;
@@ -142,12 +153,14 @@
         changeTable();
     }
 
+    /*add an element to the vs provisional list UEFA*/
     function addToVsUEFA(element,object){            
         findUserToDeleteUEFA(object);
         provisionalListUEFA.push(object);
         changeTableUEFA();
     }
 
+    /*quit an element to the vs provisional list UEFA*/
     function quitOfVsUEFA(element,object){                        
         if (playP) {
             return;
@@ -157,6 +170,7 @@
         changeTableUEFA();
     }
 
+    /*change the table data to the new data and show it into the view*/
     function changeTable(){                         
         var variable= "";           
         var variable2= "";           
@@ -222,7 +236,7 @@
         }
     }
     
-
+    /*change the table data UEFA to the new data and show it into the view*/
     function changeTableUEFA(){                         
         var variable= "";           
         var variable2= "";                   

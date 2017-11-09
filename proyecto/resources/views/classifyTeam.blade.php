@@ -29,6 +29,8 @@
         <div class="nav-wrapper">
         <a href="/ranking" class="brand-logo nav_logo">FIFA</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/repechage">Sorteo</a></li>
+            <li><a href="/saveGames">juegos guardados</a></li>
             <li><a href="/ranking">Ranking</a></li>
             <li><?php session_start(); echo $_SESSION['fullName'] ?></li>
             <li><a href="">Cerrar Sesión</a></li>

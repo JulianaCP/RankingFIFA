@@ -4,6 +4,20 @@
     margin-right: 20%;
 } 
 
+.classDivSelectLeft{        
+    margin-right: 50%;        
+}
+.classDivSelectRight{        
+    margin-left: 50%;        
+}
+.classDivContent{
+   height: 450px;  
+   overflow-y: scroll;
+}
+.classImage{
+    height: 45px;
+    width: 70px;
+}
 .thBoard{
     background-color: #0B614B;
     color: white;

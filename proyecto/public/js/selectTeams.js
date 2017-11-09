@@ -10,6 +10,7 @@ var organizadorSelected;
 var repechajeList=[];            
 var totalLarge= 0;
 
+/*it serves to deselect a team*/
 function desSelectTeam(valueP, nombre){            
     findUserToDelete(nombre.nombreEquipo);
     var actual= document.getElementById("categorieInsU").value;
@@ -36,6 +37,7 @@ function desSelectTeam(valueP, nombre){
     }                
 }
 
+/*it found a team in the list and delete it*/
 function findUserToDelete(user){            
     for(var i= 0; i< lista.length; i++){                
         if (lista[i].nombreEquipo == user){                              
@@ -51,6 +53,7 @@ function findUserToDelete(user){
     }
 }
 
+/*it found a team in the list*/
 function findUser(user){            
     for(var i= 0; i< lista.length; i++){                
         if (lista[i].nombreEquipo == user){                              
@@ -64,6 +67,8 @@ function findUser(user){
     }
     return false;
 }
+
+/*show error message to the user*/
 function errorMessage(checkboxInput, menssage){    
     swal(
 
@@ -75,7 +80,7 @@ function errorMessage(checkboxInput, menssage){
     checkboxInput.checked=false;
 }
 
-
+/*serves to select a team*/
 function selectTeam(nombre,counter){                                                        
     var actual= document.getElementById("categorieInsU").value;
     var checkboxInput= document.getElementById(nombre.nombreEquipo);                        
@@ -288,6 +293,7 @@ function selectTeam(nombre,counter){
     }
 }        
 
+/*serves to verify if an organizer has already been selected previously*/
 function OrganizatorSelectedNow(){
     if(organizadorSelected != null){
         var checkboxInput= document.getElementById(organizadorSelected.nombreEquipo);                
@@ -298,7 +304,7 @@ function OrganizatorSelectedNow(){
     }
 }
 
-
+/*it serves to verify if an element has already been selected previously*/
 function isSelectedNowInTheList(){                        
     for(var i= 0; i< lista.length; i++){                
         var checkboxInput= document.getElementById(lista[i].nombreEquipo);                

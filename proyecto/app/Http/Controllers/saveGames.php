@@ -6,10 +6,13 @@ use Illuminate\Http\Request;
 
 class saveGames extends Controller
 {
+    /*return the view saveNewGame */
     public function saveNewGameShow(){
         return View('saveNewGame');
     }
 
+    /*return the view saveGames and insert the information
+    posted in the db to create a new save game*/
     public function saveNewGame(){
         session_start();
         $name= $_POST['nombre'];
@@ -37,6 +40,8 @@ class saveGames extends Controller
         }                
     }
 
+    /*return the view showSaveGames and get the inforamtion of an specific 
+    data into the table sorteoGuardado from the db*/
     public function showInfoSpecific(){
         try{
             $idEquipo= $_POST['nombre'];
@@ -49,6 +54,8 @@ class saveGames extends Controller
         } 
     }
 
+    /*select all th information from table guardarEquipoUsuario of the db
+    and return the view savePage*/
     public function showInfo(){
         try{
             $lista= \DB::select('SELECT * from guardarEquipoUsuario');
